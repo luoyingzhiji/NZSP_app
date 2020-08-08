@@ -1,0 +1,18 @@
+<!-- 取消报名弹窗 -->
+   <view class="pop_up" hidden="{{operationPromptStatus}}" style="position:fixed;top:0rpx;z-index:2；height:{{widHeights}}">
+      <view class="pop_upBox">
+         <view class="pop_upBox_img">
+            <image wx:if="{{operationPromptType == 'resImg'}}" class="error" src="../../image/xinxilan/no.png"></image>
+            <image wx:if="{{operationPromptType == 'chick'}}" class="chick" src="../../image/xinxilan/chick-doubt.png"></image>
+         </view>
+         <view class="pop_upBoxOne">{{operationPromptText}}</view>
+         <view class="pop_upBoxTwo">
+             <view wx:if="{{btnStatus == 'determine'}}" class="pop_upBoxTwo1" style="margin-right:16rpx;" bindtap="tabNameOne">确定</view>
+            <view wx:if="{{btnStatus == 'determine1'}}" class="pop_upBoxTwo1" style="margin-right:16rpx;" bindtap="tabNameOne">含泪取消</view>
+             <view wx:if="{{btnStatus == 'save'}}" class="pop_upBoxTwo1" style="margin-right:16rpx;" bindtap="tabEmail">保存</view>
+            
+             <view  wx:if="{{btnStatus == 'determine1'}}" class="pop_upBoxTwo1 pop_upBoxTwo2" bindtap="cancelNameS1">我再想想</view>
+              <view wx:else class="pop_upBoxTwo1 pop_upBoxTwo2" bindtap="cancelNameS">取消</view>
+         </view>
+      </view>
+   </view>

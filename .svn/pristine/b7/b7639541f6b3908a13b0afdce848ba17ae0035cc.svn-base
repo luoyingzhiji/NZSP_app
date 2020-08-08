@@ -1,0 +1,250 @@
+
+@import "../../wxParse/wxParse.wxss";
+.txt{
+  color: #FFFFFF;
+  font-size: 36rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-weight: 500;
+}
+.bar-info{
+  width: 750rpx;
+  background-color:#000;
+
+}
+.bar-scroll{
+  display:flex;
+  flex-wrap: nowrap;
+
+}
+.scroll-eee{
+  background:rgba(238,238,238,.2);
+}
+.scroll{
+  background-color:#2FBAF5;
+}
+
+.scroll:last-child ,.scroll-eee:last-child{
+  margin-right: 0!important;
+}
+/* .scroll{
+width:calc(100%/sectionList.length)rpx;height:6rpx;padding-right:4rpx;background-color:#2FBAF5;
+
+} */
+
+
+
+.marheight{
+   margin-top:50rpx;
+}
+
+.bar-small{
+  width: 88rpx;
+  margin: 34rpx 0rpx 2rpx 50rpx;
+  font-size: 20rpx;
+  color: #2FBAF5;
+  line-height: 28rpx;
+  letter-spacing: 2rpx;
+}
+.bar-title{
+  padding: 12rpx 40rpx 4rpx;
+  /* width: 100%; */
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+  font-size: 36rpx;
+  font-weight:700;
+  /* line-height: 60rpx; */
+ /* box-sizing: border-box; */
+}
+.bar-left{
+  /* width: 452rpx; */
+  height: 60rpx;
+  font-size: 44rpx;
+  line-height: 60rpx;
+  color: #fff;
+  font-weight: 700;
+  max-width:505rpx;
+  /* margin-right: 88rpx; */
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+}
+
+.bar-img{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 14rpx;
+  vertical-align: middle
+}
+.bar-size{
+  font-size: 26rpx;
+  line-height: 36rpx;
+  letter-spacing: 2rpx;
+  color: #fff;
+}
+.bar-show{
+  width: 750rpx;
+  background-color:#fff;
+  border-radius:30rpx 30rpx 0rpx 0rpx;
+  margin-top: 52rpx;
+}
+.lala{
+  height: 0.1rpx;
+  width: 0.1rpx;
+}
+ .bar-video{
+  width: 650rpx;
+  height: 152rpx;
+  background-color: #F7F7F7;
+  border-radius: 16rpx;
+  margin-left: 50rpx;
+  display: flex;
+ flex-wrap: nowrap;
+  align-items: center;
+}
+.video-left{
+   width: 452rpx;
+   height: 152rpx;
+   padding-left: 40rpx;
+   padding-top: 26rpx;
+   box-sizing: border-box;
+}
+.video-right{
+  width: 198rpx;
+  height: 152rpx;
+  background:url('https://hk--img.oss-cn-beijing.aliyuncs.com/20190829/course/3szChGZfEKcy6x8sTKEe.png') no-repeat 0 56rpx;
+}
+
+.video-ready{
+  height: 42rpx;
+ color: #000;
+ font-size: 30rpx;
+ line-height: 42rpx;
+}
+.video-progress{
+  padding-top: 20rpx;
+  padding-bottom: 8rpx;
+}
+.video-time{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    color: rgb(0, 0,0,0.3);
+    font-size: 20rpx;
+    line-height: 24rpx;
+}
+.bar-contents{
+  margin-top: 110rpx;
+  width: 750rpx;
+}
+.bar-number{
+  margin-left: 40rpx;
+  color: rgb(0, 0,0,0.08);
+  font-size: 48rpx;
+  letter-spacing: 2rpx;
+  font-weight:700;
+}
+.bar-english{
+  /* margin-bottom: 50rpx; */
+   margin-left: 48rpx;
+  color: #2FBAF5;
+  font-size: 22rpx;
+
+}
+.wxParse{
+  margin: 0 40rpx;
+}
+.wxParse-p{
+  margin-bottom: 20px;
+  line-height: 24px;
+}
+.wxParse-img{
+  width: 100%;
+
+}
+
+.the-previous-section image{
+  width: 14rpx;
+height: 22rpx;
+margin:0 6rpx;
+}
+.submit-paper-list{
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 50rpx 48rpx 50rpx;
+}
+.submit-paper{
+  width: 57%;
+  height: 104rpx;
+  line-height: 104rpx;
+  text-align: center;
+  background-color: #000;
+  border-radius: 52rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+.submit-paperone{
+  width: 100%;
+  margin-top: 120rpx;
+  border-radius: 52rpx;
+  background-color: #000;
+  height: 104rpx;
+  line-height: 104rpx;
+  text-align: center;
+   color: #fff;
+  font-size: 30rpx;
+}
+.submit-paper-list button::after{
+  border: none!important;
+}
+.submit-paper-list button[disabled]{
+  background-color: rgba(0, 0, 0, .3);
+  color: #fff;
+}
+.the-previous-section{
+  text-align: center;
+  width: 38%;
+  height: 104rpx;
+  line-height: 104rpx;
+  background-color: #fff;
+  border-radius: 52rpx;
+  color: #000;
+  font-size: 30rpx;
+  border:1px solid #000;
+}
+.the-previous-section-100{
+  text-align: center;
+  width: 100%;
+   height: 104rpx;
+  line-height: 104rpx;
+  background-color: #fff;
+  border-radius: 52rpx;
+  color: #000;
+  font-size: 30rpx;
+  border:1px solid #000;
+}
+.the-previous-section-100 image{
+  width: 14rpx;
+height: 22rpx;
+margin:0 6rpx;
+}
+.daughter-progress{
+  position: relative;
+}
+.progress-num{
+  width: 38px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left:10px;
+  background-color: #fff;
+  border-radius: 9px;
+  font-size: 24rpx;
+  color: #000;
+  font-weight: bold;
+}

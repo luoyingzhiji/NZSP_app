@@ -1,0 +1,114 @@
+
+<!-- 导航栏 -->
+<view style="background-color:#000" class=" top opt-header-black {{isIphoneX?'top-x':''}}">
+  <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px'></view>
+  <view class='header'>
+     <navigator open-type="navigateBack" bindtap="backList">
+      <image class="navigator-image {{isIphoneX?'navigator-image-x':''}}" style='top:{{statusBarHeight + 10}}px' src='../../image/index/turnLeftWhite.png'></image>
+    </navigator>
+  </view>
+</view>
+<import src="../../wxParse/wxParse.wxml" />
+
+
+<view  class="activity-heard" style="position: relative; top:{{statusBarHeight + 45}}px;" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+
+  <view>
+         <view style="display:flex;">
+            <view class="heard-left">
+                <image class="activity-img" src="{{imagePath}}{{banner}}"></image>
+              
+                  <image hidden="{{time==0?false:true}}" class="city_site" src="../../image/xinxilan/name.png" mode="widthFix" ></image>
+            </view>
+            <view class="heard-right">
+              <view class="heard-title">{{name}}</view>
+                  <view hidden="{{time==0?false:true}}" class="heard-begin">即将开始</view>
+                  <view hidden="{{time==1?false:true}}" class="heard-begin" >活动进行中</view>
+                  <view hidden="{{time==2?false:true}}" class="heard-begin">活动回顾</view>
+              <view class="heard-name" wx:if="{{isShow=='yes'}}">
+                <text class="heard-number">{{surplusNum}}</text>
+                <text style="color:#fff">个剩余名额</text>
+                <text> / {{countNum}}人已报名</text>
+              </view>
+            </view>
+         </view>
+      
+      <view style="padding-bottom:350rpx;" class="activity-info">
+       <navigator wx:if="{{addressShow==true}}" url="map?longitude={{longitude}}&latitude={{latitude}}&address={{address}}&detailedAddress={{detailedAddress}}">
+        <view class="info-site">
+          <view class="site-left">
+            <image class="activity-watch" src="../../image/xinxilan/site-img.png"></image>
+            <view class="site-city">
+                <text style="font-size:30rpx;line-height:42rpx;color:#000;font-weight:600;">{{address}}</text>
+              <view style="font-size:24rpx;line-height:34rpx;color:rgba(187, 187, 187);padding-top:6rpx;width: 554rpx;">{{detailedAddress}}</view>
+            </view>
+          </view>
+         
+                <view class="site-right">
+            <image style="width:24rpx;height:24rpx;" class="site-img1" src="../../image/xinxilan/site-img1.png"></image>
+          </view>
+        </view>
+       </navigator>
+        <view class="info-line"></view>
+        <view class="info-time">
+          <image class="activity-watch" src="../../image/xinxilan/watch.png"></image>
+          <text class="watch-time">{{startTimeStr}} - {{endTimeStr}}</text>
+          <text class="watch-point">{{startTimeStrHm}} - {{endTimeStrHm}}</text>
+        </view>
+        <view class="info-line" style="margin-bottom:68rpx"></view>
+        <view style="width:60rpx;height:88rpx;position:absolute;left:50rpx;padding-top:40rpx;">
+          <image style="width:34rpx;height:36rpx;" src="../../image/xinxilan/quote.png"/>
+        </view>
+        <view class="activity-box">
+        <view class="activity-title">
+          <view class="activity-content">
+            <view class="wxParse">
+              <template is="wxParse" data="{{wxParseData:activityContent.nodes}}" />
+            </view>
+          </view>
+        </view>
+        
+        </view>
+        <view style="margin:80rpx 48rpx 104rpx 48rpx;width:654rpx;"> 
+        <view class="activity-content" style=" text-align: justify;">
+          <view class="wxParse">
+            <template is="wxParse" data="{{wxParseData:activityContentTwo.nodes}}" />
+          </view>
+        </view>
+        </view>
+      </view>
+  </view>
+     
+      <!-- 底部按钮 -->
+      <!-- <block wx:if='{{atyShow==true}}'> -->
+         <view style="position:fixed;bottom:200rpx;right:30rpx" >
+                         <button open-type="share" style="padding: 0px;width:76rpx;height:76rpx;border-radius: 50%;">
+                             <image style="width:76rpx;height:76rpx;" src="../../image/xinxilan/share.png"></image>
+                         </button>  
+        </view>     
+        <view wx:if="{{time!=2}}" class="btnT">
+              <form bindsubmit="formSubmit"  report-submit="true" hidden="{{sts==1?true:false}}">
+                <button class='form_button' form-type='submit' data-name='buttonName'> 
+                    <view wx:if="{{isApply=='yes'}}">
+                      <view wx:if="{{time==0&&immediately!=1&&surplusNum>0}}" class="signup" bindtap="tabName">立刻报名 </view>     
+                    </view>        
+                      <view wx:if="{{(time==0&&immediately==1)}}" class="signupone" bindtap="cancelName">取消报名</view>
+                      <view wx:if="{{time==0&&surplusNum<=0}}" class="signup" style="background:RGBA(178, 178, 178, 1)">名额已满</view>
+                      <view wx:if="{{time==1}}" class="signup" style="background:RGBA(178, 178, 178, 1)">报名截止</view>
+                </button>
+            </form>
+        </view>
+      <!-- </block> -->
+        
+        
+        
+  
+     
+</view>
+
+
+<include src="../partail/dialog.wxml"/>
+<include src="../partail/operationPrompt.wxml"/> 
+<include src="../partail/bottomPrompt.wxml"/> 
+<include src="../partail/examPrompt.wxml"/>
+<include src="../partail/expertsUpgrade.wxml"/>

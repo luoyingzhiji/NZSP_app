@@ -1,0 +1,61 @@
+<!-- 导航栏 -->
+<view class="top opt-header-black {{isIphoneX?'top-x':''}} ">
+  <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px'></view>
+  <view class='header'>
+  <navigator open-type="navigateBack">
+      <image  class="navigator-image {{isIphoneX?'navigator-image-x':''}}" style='top:{{statusBarHeight + 16}}px;padding-left:32rpx;' src='../../image/xinxilan/return.png'></image>
+    </navigator>
+    <text class="txt titleWeight">我的收藏</text>
+  </view>
+</view>
+
+<!-- 存在收藏信息 -->
+<block  wx:if="{{collectS}}">
+  <view  class="collectinfo" style="top:{{statusBarHeight + 45}}px; position:relative;">
+ 
+   <view class="info">
+     <view class="collect" wx:for="{{collectList}}" data-index="{{index}}" wx:key="{{index}}" bindtap="btnbar">
+         <view class="collect-box" >
+          <view>
+            <text class="collectType">{{item.type=='basics'?'基础课程':'进阶课程'}}</text> <text style="padding-right:10rpx;">{{item.courseTitle}}</text><text>{{item.serialNumber}}</text>
+          
+               <view style="display: flex;align-items: center;justify-content:center; font-size:36rpx;color:#000;margin-top:6rpx;font-weight:600;">
+                <view style="padding-right:28rpx;width:250rpx;height:50rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;line-height:50rpx">{{item.courseName}}</view>
+                <view style="width:270rpx;height:50rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;line-height:50rpx;">{{item.courseSectionName}}</view>
+            </view>
+          </view>
+           <image style="width:40rpx;height:28rpx;float:right;top:-10rpx;" src="../../image/xinxilan/site-img1.png" data-index="{{index}}"></image>
+           <!-- <view class="collectOne">
+            <text class="collectType">{{item.type=='basics'?'基础课程':'进阶课程'}}</text> <text style="padding-right:10rpx;">{{item.courseTitle}}</text><text>{{item.serialNumber}}</text>
+            <view class="collectTwo">
+               <view style="display: flex;align-items: center;justify-content:center;">
+                <view style="padding-right:28rpx;width:250rpx;height:50rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;line-height:50rpx">{{item.courseName}}</view>
+                <view style="width:270rpx;height:50rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;line-height:50rpx">{{item.courseSectionName}}</view>
+            </view>
+           </view>
+           <image style="width:24rpx;height:24rpx;float:right;top:-10rpx;" src="../../image/xinxilan/site-img1.png" data-index="{{index}}"></image>
+           </view>  -->
+           
+           </view>
+      </view>
+   
+      </view> 
+    </view>
+   <include src="../partail/dialog.wxml"/> 
+</block>
+
+<!-- 收藏信息不存在 -->
+<block wx:else>
+     <view  class="collectinfo" style="top:{{statusBarHeight + 45}}px; position:relative;">
+   <view class="none-collect" style="height:{{winHeight-statusBarHeight-45}}px;">
+     <view class="collect-kiWi">
+       <image src="../../image/xinxilan/col1.png" style="width:166rpx;height:230rpx"></image>
+     </view>
+    <view class="kdown">空空如也，还没收藏任何课程哦</view>
+    <view class="collectBtn" bindtap="btnCollect">前往课程</view>
+   </view>
+
+</view> 
+
+</block>
+

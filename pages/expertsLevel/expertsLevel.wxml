@@ -1,0 +1,139 @@
+<!-- 专家等级 -->
+ <view style="background-color:#000" class=" top opt-header-black {{isIphoneX?'top-x':''}}">
+    <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px;'></view>
+    <view class='header'>
+      <navigator open-type="navigateBack">
+        <image class="navigator-image {{isIphoneX?'navigator-image-x':''}}" style='top:{{statusBarHeight + 10}}px' src='../../image/index/turnLeftWhite.png'></image>
+      </navigator>
+      <text class="txt"></text>
+    </view>
+  </view>
+  <view class="{{isIphoneX?'mt170':''}} experts-level" style="margin-top:{{statusBarHeight + 45}}px">
+    <view class="experts-info">
+      <view class="experts-info-title">
+        <view class="experts-info-title-left">
+          <image src="../../image/my/level-bg-fff.png"></image>
+          <text>专家等级</text>
+        </view>
+        <view bindtap="openPrompt" wx:if="{{expertsLevelEntity.grade > 0}}" class="experts-info-title-right">
+          <image src="../../image/my/download2.png"></image>
+          <text>下载徽章</text>
+        </view>
+      </view>
+      <view class="experts-info-introduce"><text>升级专家即可解锁相应福利</text></view>
+      <view class="experts-info-details" style="background-image:url({{infoBg}})">
+        <view class="experts-info-img"><image src="{{imagePath}}{{userInfo.avatar}}"></image></view>
+        <text class="experts-info-name">{{userInfo.realName}}</text>
+        <view class="experts-info-medal" wx:if="{{expertsLevelEntity.grade > 0}}">
+          <image src="{{imagePath}}{{medal}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="experts-list">
+      <view class="experts-list-title"><text>-</text><text style="margin:0 8px;">会员福利</text><text>-</text></view>
+      <view class="experts-list-content">
+        <view class="content-list">
+          <view class="content-list-left">
+            <view class="content-list-index">01</view>
+            <view class="content-list-medal">
+              <view class="content-list-medal-name">专属勋章</view>
+              <view class="content-list-medal-introduce">旅游专家专属勋章</view>
+            </view>
+          </view>
+          <view class="content-list-right">
+            <view  wx:if="{{expertsLevelEntity.grade == 0}}"  class="content-list-cuprum-status-unlock">
+              <image src="../../image/my/cuprum-lock.png"></image>
+              <text>铜牌解锁</text>
+            </view>
+            <view wx:if="{{expertsLevelEntity.grade>0}}" class="content-list-status-unlocked"><text>已获得特权</text></view>
+          </view>
+        </view>
+        <view class="content-list">
+          <view class="content-list-left">
+            <view class="content-list-index">02</view>
+            <view class="content-list-medal">
+              <view class="content-list-medal-name">探访新西兰优惠</view>
+              <view class="content-list-medal-introduce">加入探访新西兰特惠折扣计划</view>
+            </view>
+          </view>
+          <view class="content-list-right">
+            <view  wx:if="{{expertsLevelEntity.grade == 0}}"  class="content-list-cuprum-status-unlock">
+              <image src="../../image/my/cuprum-lock.png"></image>
+              <text>铜牌解锁</text>
+            </view>
+            <view wx:if="{{expertsLevelEntity.grade>0}}" class="content-list-status-unlocked"><text>已获得特权</text></view>
+          </view>
+        </view>
+        <view class="content-list">
+          <view class="content-list-left">
+            <view class="content-list-index">03</view>
+            <view class="content-list-medal">
+              <view class="content-list-medal-name">活动邀请特权</view>
+              <view class="content-list-medal-introduce">受邀参加新西兰旅游局大型线上线下活动和培训</view>
+            </view>
+          </view>
+          <view class="content-list-right">
+            <view  wx:if="{{expertsLevelEntity.grade == 0}}"  class="content-list-cuprum-status-unlock">
+              <image src="../../image/my/cuprum-lock.png"></image>
+              <text>铜牌解锁</text>
+            </view>
+            <view wx:if="{{expertsLevelEntity.grade>0}}" class="content-list-status-unlocked"><text>已获得特权</text></view>
+          </view>
+        </view>
+        <view class="content-list">
+          <view class="content-list-left">
+            <view class="content-list-index">04</view>
+            <view class="content-list-medal">
+              <view class="content-list-medal-name">参与考察机会</view>
+              <view class="content-list-medal-introduce">优先受邀参加由新西兰旅游局组织的新西兰考察团</view>
+            </view>
+          </view>
+          <view class="content-list-right">
+            <view  wx:if="{{expertsLevelEntity.grade <= 1}}"  class="content-list-silver-status-unlock">
+              <image src="../../image/my/silver-lock.png"></image>
+              <text>银牌解锁</text>
+            </view>
+            <view wx:if="{{expertsLevelEntity.grade>1}}" class="content-list-status-unlocked"><text>已获得特权</text></view>
+          </view>
+        </view>
+        <view class="content-list">
+          <view class="content-list-left">
+            <view class="content-list-index">05</view>
+            <view class="content-list-medal">
+              <view class="content-list-medal-name">合作推广特权</view>
+              <view class="content-list-medal-introduce">参加官方合作市场推广活动</view>
+            </view>
+          </view>
+          <view class="content-list-right">
+            <view  wx:if="{{expertsLevelEntity.grade <= 1}}"  class="content-list-silver-status-unlock">
+              <image src="../../image/my/silver-lock.png"></image>
+              <text>银牌解锁</text>
+            </view>
+            <view wx:if="{{expertsLevelEntity.grade>1}}" class="content-list-status-unlocked"><text>已获得特权</text></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="experts-btn" wx:if="{{expertsLevelEntity.grade==0}}">
+      <view class="experts-btn-prompt"><text>完成基础课程，即可获得铜牌</text></view>
+      <view class="experts-btn-content" bindtap="skipCourse"><text>前往升级</text></view>
+    </view>
+    <view class="experts-btn" wx:if="{{expertsLevelEntity.grade==1}}">
+      <view class="experts-btn-prompt"><text>报名并参加线下活动，即可升级银牌专家</text></view>
+      <view class="experts-btn-content" bindtap="skipActivity"><text>前往活动页面</text></view>
+    </view>
+    <view class="experts-btn" wx:if="{{expertsLevelEntity.grade==2}}">
+      <view class="experts-btn-prompt"><text>{{expertsLevelEntity.isNull=='no'?'上传3年内到访新西兰的凭证，即可升级金牌专家':'凭证已上传，验证将尽快完成~'}}</text></view>
+      <view class="experts-btn-content" data-isNull="{{expertsLevelEntity.isNull}}" bindtap="uploadDocuments">
+        <text>{{expertsLevelEntity.isNull=='no'?'上传凭证':'查看凭证'}}</text>
+      </view>
+    </view>
+    <view class="experts-btn" wx:if="{{expertsLevelEntity.grade==3}}">
+      <view class="experts-btn-prompt"><text>恭喜你成为金牌专家</text></view>
+    <button open-type="share"  style="background:#fff;position:	static">
+      <view class="experts-btn-content"><text>邀请同事加入专家计划</text></view>
+    </button>
+    
+    </view>
+  </view>
+  <include src="../partail/bottomPrompt.wxml"/> 

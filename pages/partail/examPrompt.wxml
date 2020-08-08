@@ -1,0 +1,36 @@
+<!-- <view bindtap="examineErrors" class="prompt-window" hidden="{{examPromtStatus}}" style="height:{{promptWindowHeight*2}}rpx"> -->
+<view class="prompt-window" class="prompt-window" hidden="{{examPromtStatus}}" style="height:{{promptWindowHeight*2}}rpx">
+   <!-- 正确弹窗 -->
+    <view class="prompt-window-content {{examPromtType === 'signIn'?'prompt-window-contentone':''}}">
+      <view class="prompt-window-content-img {{examPromtType == 'signIn'?'prompt-window-content-img1':''}}">
+        <image class="prompt-correct" wx:if="{{examPromtType == 'promptCorrect'}}" src="../../image/xinxilan/trumpet-chick.png"></image>
+        <image class="prompt-errors" wx:if="{{examPromtType == 'promptErrors'}}" src="../../image/xinxilan/chick-doubt.png"></image>
+          <image class="prompt-errors" wx:if="{{examPromtType == 'promptErrorsSign'}}" src="../../image/xinxilan/chick-doubt.png"></image>
+        <image class="prompt-correct" wx:if="{{examPromtType == 'nextChapter'}}" src="../../image/xinxilan/trumpet-chick.png"></image>
+        <image class="signIn" wx:if="{{examPromtType == 'signIn'}}" src="../../image/xinxilan/trumpet-chick.png"></image>
+        <image class="apply" wx:if="{{examPromtType == 'apply'}}" src="../../image/xinxilan/chick-heart.png"></image>
+      </view>
+      <view class="prompt-window-content-title">
+        {{examPromtTitle}}
+      </view>
+      <view class="prompt-window-content-explain">
+        <text>{{examPromtText}}</text>
+      </view>
+      <view class="examine-errors" wx:if="{{btnStatus == 'exam'}}">
+          <button wx:if="{{examPromtType == 'promptCorrect'}}" bindtap="nextVerse">进入下一节</button>
+          <button wx:if="{{examPromtType == 'promptErrors'}}" bindtap="examineErrors">查看错题</button>
+          <button wx:if="{{examPromtType == 'promptErrorsSign'}}" bindtap="examineErrors">好的</button>
+          <button wx:if="{{examPromtType == 'nextChapter'}}" bindtap="skipNextChapter">好的</button>
+         
+      </view>
+      <view class="examine-errors" wx:if="{{btnStatus == 'competition'}}">
+          <button bindtap="">返回活动中心</button>
+      </view>
+      <view class="examine-errors" wx:if="{{btnStatus == 'signIn'}}" >
+          <button bindtap="signInBtn" style="font-size:30rpx">好的</button>
+      </view>
+      <view class="examine-errors" wx:if="{{btnStatus == 'apply'}}" >
+          <button bindtap="signInBtn1" style="font-size:30rpx">好的</button>
+      </view>
+    </view>
+</view>

@@ -1,0 +1,228 @@
+<!-- 导航栏 -->
+<view class="top opt-header-black {{isIphoneX?'top-x':''}} ">
+  <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px'></view>
+  <view class='header'>
+    <text class="txt">新西兰旅游局活动</text>
+  </view>
+</view>
+  <form bindsubmit="formSubmit" report-submit="true">
+    <button class='form_button' form-type='submit' data-name='buttonName'>
+        <!-- 身份判断 -->
+        <block wx:if="{{chooseS==2}}">
+                  <!-- 分类 -->
+            <view class="show-bar" style='top:{{statusBarHeight + 45}}px;height:39px;line-height:39px'>
+              <view class="{{currentType=='0'?'cur':''}}"  data-lang="0" bindtap="chooseType" style="margin-right:40rpx;box-sizing: border-box;">全部</view>
+              <view class="{{currentType=='1'?'cur':''}}"  data-lang="1" bindtap="chooseType" style="margin-right:40rpx;box-sizing: border-box;">即将开始</view>
+              <view class="{{currentType=='2'?'cur':''}}"  data-lang="2" bindtap="chooseType" style="margin-right:40rpx;box-sizing: border-box;">活动回顾</view>
+            </view>
+            <view class="course" style='position:relative;width: 100%;top:{{statusBarHeight + 45+39}}px;'>
+            <swiper current="{{currentType}}" class='swiper' style="height:{{scrollViewHeight-39}}px" duration="300" bindchange="switchTab">
+              <swiper-item >
+              <scroll-view scroll-y="true" bindscrolltolower="loadMore" style="width: 100%;height:{{scrollViewHeight-39}}px">
+              <!-- 活动列表 -->
+            <view class="city_list">
+              <view class="city_content">
+                  <view class="left ">
+                    <view class=" {{activity.type == 2?'picture':'left-message'}}" wx:for="{{activityList}}" wx:for-item="activity" wx:for-index="index" wx:key="index" wx:if="{{index%2==0}}">
+                    <navigator wx:if="{{activity.type == 2}}" url="" open-type="navigateTo">
+                      <template is="m-city" data="{{ activity : activity,index : index,imagePath:imagePath}}" />
+                      </navigator>
+            <navigator wx:else url="../activity/activity?id={{activity.id}}" open-type="navigateTo">
+                      <template is="m-city" data="{{ activity : activity,index : index,imagePath:imagePath}}" />
+                      </navigator>
+
+                    </view>
+                  </view>
+                  <view class="right">
+                    <view class="right-message">
+                      <view class="message" wx:for="{{activityList}}" wx:for-item="activity" wx:for-index="index" wx:key="index" wx:if="{{index%2==1}}">
+                      <navigator  wx:if="{{activity.type == 2}}" url=""  open-type="navigateTo">
+                        <template is="m-city" data="{{ activity : activity,index : index,imagePath:imagePath}}" />
+                          </navigator>
+
+                          <navigator wx:else url="../activity/activity?id={{activity.id}}"  open-type="navigateTo">
+                        <template is="m-city" data="{{ activity : activity,index : index,imagePath:imagePath}}" />
+                          </navigator>
+                      </view>
+                    </view>
+                  </view>
+              </view>
+              <view class="show_down">没有更多活动了</view>
+            </view>
+            <template name="m-city" class="history_item">
+              <view class="city_item ">
+              <image wx:if="{{activity.type == 2}}" class="item-img" src="../../image/xinxilan/more.png" mode="widthFix"></image>
+                <image wx:else class="item-img" src="{{imagePath}}{{activity.banner}}" mode="widthFix"></image>
+                <view  hidden="{{activity.type == 2?false:true}}" class="activity-more">
+                  <view class="more-time">2019</view>
+                  <view class="more-string">更多活动敬请期待</view>
+                  <view class="more-city">上海 / 成都 / 青岛</view>
+                </view>
+                <view  hidden="{{activity.type == 1?false:true}}" class="contents" >
+
+                 
+                    <image hidden="{{activity.time==0?false:true}}" style="width:92rpx;height:92rpx;position:absolute;top:-8rpx;left:-8rpx;" class="city_site" src="../../image/xinxilan/name.png" mode="widthFix"></image>
+                    <view style=" display: flex;justify-content: center;align-items: center;"> <view hidden="{{activity.time==0?false:true}}" class="activity-state">即将开始</view>
+                    <view hidden="{{activity.time==1?false:true}}" class="activity-state" style="background-color:#000" >活动进行中</view>
+                    <view hidden="{{activity.time==2?false:true}}" class="activity-state" style="background-color:rgba(255,255,255,0);border:2rpx solid #fff;">活动回顾</view></view>
+                  
+                    <view class="activity-title">{{activity.name}}</view>
+                    <view class="activity-cityTime">
+                      <view style="display:flex;align-items: center;">
+                        <image class="city_site" src="../../image/xinxilan/site-img.png"></image>
+                        <view class="activity-city">{{activity.city}}</view>
+                      </view>
+                      
+                      
+                      <view class="activity-time">{{activity.startTimeStr}} - {{activity.endTimeStr}}</view>
+                    </view>
+                    
+                </view>
+              </view>
+            </template>
+
+              </scroll-view>
+            </swiper-item>
+            <!-- 即将开始 -->
+              <swiper-item> 
+                <scroll-view scroll-y="true" bindscrolltolower="loadMore" style="width: 100%;height:{{scrollViewHeight-39}}px">
+              <!-- 活动列表 -->
+              <block wx:if="{{immediatelyDtartList.length!=0}}">
+                  <view class="city_list">
+                    <view class="city_content">
+                        <view class="left ">
+                          <view class="start-message" wx:for="{{immediatelyDtartList}}" wx:for-item="activity" wx:for-index="index" wx:key="index" wx:if="{{index%2==0}}">
+                                <navigator url="../activity/activity?id={{activity.id}}"  open-type="navigateTo">
+                                  <template is="classify" data="{{ activity : activity,index : index,imagePath:imagePath,currentType:currentType}}" />
+                                </navigator>
+                            </view>
+                        </view>
+                        <view class="right" >
+                          <view class="right-message">
+                            <view class="start-message" wx:for="{{immediatelyDtartList}}" wx:for-item="activity" wx:for-index="index" wx:key="index" wx:if="{{index%2==1}}">
+                                <navigator url="../activity/activity?id={{activity.id}}"  open-type="navigateTo">
+                                  <template is="classify" data="{{ activity : activity,index : index,imagePath:imagePath,currentType:currentType}}" />
+                                </navigator>
+                            </view>
+                          </view>
+                        </view>
+                    </view>
+                    <view class="show_down">没有更多活动了</view>
+                  </view>
+              </block>
+            <!-- 即将开始活动不存在 -->
+            <block wx:else>
+              
+              <view class="none-collect" style="height:{{winHeight}}rpx">
+                <view class="collect-kiWi">
+                  <image src="../../image/xinxilan/col1.png" style="width:166rpx;height:230rpx"></image>
+                </view>
+                <view class="kdown">抱歉，暂时没有即将开始的活动</view>
+              
+              </view>
+            </block>
+                    </scroll-view>
+              </swiper-item>
+              <!-- 历史活动 -->
+              <swiper-item>
+                    <scroll-view scroll-y="true" bindscrolltolower="loadMore" style="width: 100%;height:{{scrollViewHeight-39}}px">
+
+              <!-- 活动列表 -->
+              <block wx:if="{{historyActivityList.length!=0}}">
+                  <view class="city_list">
+                    <view class="city_content">
+                        <view class="left ">
+                          <view class="start-message" wx:for="{{historyActivityList}}" wx:for-item="activity" wx:for-index="index" wx:key="index" wx:if="{{index%2==0}}">
+                            <navigator url="../activity/activity?id={{activity.id}}"  open-type="navigateTo">
+                                <template is="classify" data="{{ activity : activity,index : index,imagePath:imagePath,currentType:currentType}}" />
+                              </navigator>
+                          </view>
+                        </view>
+                        <view class="right">
+                          <view class="right-message">
+                            <view class="start-message" wx:for="{{historyActivityList}}" wx:for-item="activity" wx:for-index="index" wx:key="index" wx:if="{{index%2==1}}">
+                              <navigator url="../activity/activity?id={{activity.id}}"  open-type="navigateTo">
+                                <template is="classify" data="{{ activity : activity,index : index,imagePath:imagePath,currentType:currentType}}" />
+                              </navigator>
+                            </view>
+                          </view>
+                        </view>
+                    </view>
+                    <view class="show_down">没有更多活动了</view>
+                  </view>
+              </block>
+              
+            <!-- 历史活动活动不存在 -->
+            <block wx:else>
+              <view class="none-collect"  style="height:{{winHeight}}rpx">
+                <view class="collect-kiWi">
+                  <image src="../../image/xinxilan/col1.png" style="width:166rpx;height:230rpx"></image>
+                </view>
+                <view class="kdown">抱歉，暂时没有历史活动</view>
+              </view>
+            </block>
+                    </scroll-view>
+              </swiper-item> 
+              <template name="classify">
+              <view class="city_item ">
+                <image class="item-img" src="{{imagePath}}{{activity.banner}}" mode="widthFix"></image>
+                <view class="contents" >
+                   
+                    <image hidden="{{activity.time==0?false:true}}" style="width:92rpx;height:92rpx;position:absolute;top:-8rpx;left:-8rpx;" class="city_site" src="../../image/xinxilan/name.png" mode="widthFix"></image>
+                    <view style=" display: flex;justify-content: center;align-items: center;"> 
+                      <view style=" display: flex;justify-content: center;align-items: center;">
+                        <view hidden="{{currentType==1?false:true}}" class="activity-state">即将开始</view>
+                        <view hidden="{{currentType==2?false:true}}" class="activity-state" style="background-color:rgba(255,255,255,0);border:2rpx solid #fff;">活动回顾</view></view>
+                    <view class="activity-title">{{activity.name}}</view>
+                    <view class="activity-cityTime" >
+                      <view style="display:flex;align-items: center;">
+                        <image class="city_site" src="../../image/xinxilan/site-img.png"></image>
+                        <view class="activity-city">{{activity.city}}</view>
+                      </view>
+                      
+                      <view class="activity-time">{{activity.startTimeStr}} - {{activity.endTimeStr}}</view>
+                    </view>
+                    
+                    </view>
+                </view>
+              </view>
+            </template>
+            </swiper>
+              <!-- <block url="../pages/activity/activity?signActivityId={{signActivityId}}&sign=1" open-type="navigateTo"></block> -->
+            </view>
+        </block>
+        
+        <block wx:else>
+            <view class="show-bar" style='top:{{statusBarHeight*2 + 90}}rpx;height:39px;line-height:39px;margin-left:0;'>
+              <view>
+                <image style="width:238rpx;height:146rpx;margin:350rpx 256rpx 100rpx 256rpx;display: block;" src="../../image/xinxilan/only.png"/>
+                <view class="only">抱歉，活动仅限从业者</view>
+                <view class="onlyOne">你的身份是旅游爱好者，无法参加新西兰旅游局举行的活动</view>
+              </view>
+              
+            </view>
+        </block>
+      <!-- 关注 -->
+<!--      
+      <view wx:if="{{chooseS==2}}" class="attention">
+        <official-account style="height:200rpx;">
+          <view class="attention-title">新西兰旅游专家计划关联的公众号</view>
+          <view class="attention-down">
+             <image src="../../image/xinxilan/attention.png"></image>
+             <view class="attention-auto">
+               <view class="attention-auto1">新西兰旅游局旅业资讯</view>
+               <view class="attention-auto2">新西兰产品资讯及推广培训平台</view>
+             </view>
+             <view class="attention-right"> 关注 </view>
+           
+          </view>
+           </official-account>
+        </view>
+     
+      -->
+     
+    </button>
+  </form>
+<include src="../partail/dialog.wxml"/> 
+<!-- 即将开始----模块 -->
+

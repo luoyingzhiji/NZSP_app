@@ -1,0 +1,197 @@
+
+.exam-header-black{
+  background-color: #000;
+}
+.exam-content{
+  background-color: #000;
+}
+.exam{
+  width: 100%;
+}
+.exam-title{
+  width: 100%;
+  background-color: #000;
+  padding: 6rpx 50rpx 52rpx 50rpx;
+  display: flex;
+  justify-content:space-between;
+  box-sizing: border-box;
+}
+.exam-title-left{
+  text-align: left;
+}
+.chapter{
+  font-size:20rpx;
+  color: #2FBAF5;
+  display: block;
+  padding: 34rpx 50rpx 0;
+}
+.chapter-title{
+ display: block;
+ color: #fff;
+ font-size: 44rpx;
+ margin-top: 2rpx;
+}
+.exam-title-right{
+  /* padding:14rpx 0; */
+}
+.collection-img{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}
+.collection-text{
+  font-size: 26rpx;
+  color: #fff;
+  margin-left: 14rpx;
+}
+.exam-questions{
+  width: 100%;
+  background-color: #fff;
+  padding: 54rpx 50rpx;
+  box-sizing: border-box;
+  border-radius: 30rpx 30rpx 0 0;
+}
+.exam-questions-content{
+  padding-bottom: 84rpx;
+}
+.exam-questions-content-num{
+    font-family: Helvetica;
+    color: #000;
+    font-weight: bold;
+    letter-spacing:5rpx;
+} 
+.content-num-current{
+    font-size: 40rpx;
+}
+.content-num-total{
+    font-size: 30rpx;
+    opacity: 0.15;
+}
+.exam-questions-content-rubric{
+  margin-top: 12rpx;
+  font-size: 30rpx;
+  color: #333333;
+  /* text-align: justify; */
+
+}
+.exam-questions-content-options{
+  margin-top: 32rpx;
+}
+.exam-questions-option{
+   width: 100%;
+  border: 1px solid rgba(0, 0, 0, .1);
+  padding: 26rpx 30rpx;
+  border-radius: 12rpx;
+  box-sizing: border-box;
+  margin-top: 16rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.exam-questions-option image{
+  width: 44rpx;
+  height: 44rpx;
+  vertical-align: middle;
+  /* float: right */
+}
+.exam-questions-option text{
+   width: 550rpx;
+}
+.submit-paper-list{
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.the-previous-section{
+  text-align: center;
+  width: 38%;
+  height: 104rpx;
+  line-height: 104rpx;
+  background-color: #fff;
+  border-radius: 52rpx;
+  color: #000;
+  font-size: 30rpx;
+  border:1px solid #000;
+}
+.the-previous-section image{
+  width: 14rpx;
+height: 22rpx;
+margin-right: 6rpx;
+}
+.submit-paper{
+  width: 57%;
+  height: 104rpx;
+  line-height: 104rpx;
+  text-align: center;
+  background-color: #000;
+  border-radius: 52rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+.submit-paperone{
+  width: 100%;
+  border-radius: 52rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  font-size: 30rpx;
+}
+.submit-paper-list button::after{
+  border: none!important;
+}
+.submit-paper-list button[disabled]{
+  background-color: rgba(0, 0, 0, .3);
+  color: #fff;
+}
+/* 选择题选中样式 */
+.exam-questions-content-options .pitch-on{
+  background-color: #2FBAF5;
+  color: #fff;
+}
+/* 选择题提交以后，选择答案正确样式 */
+.exam-questions-content-options .correct{
+  color: #20CF9D;
+  border: 1px solid #20CF9D;
+}
+/* 选择题提交以后，选择答案错误样式 */
+.exam-questions-content-options .error{
+  color: #F96565;
+  border: 1px solid #F96565;
+}
+
+.bar-scroll{
+  display:flex;
+  flex-wrap: nowrap;
+ 
+}
+.scroll-eee{
+  background:rgba(238,238,238,.2);
+}
+.scroll{
+  background-color:#2FBAF5;
+}
+
+.scroll:last-child{
+  margin-right: 0;
+}
+.daughter-progress{
+  position: relative;
+}
+.progress-num{
+  width: 76rpx;
+  height: 36rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left:10px;
+  background-color: #fff;
+  border-radius: 9px;
+  font-size: 24rpx;
+  color: #000;
+  font-weight: bold;
+}

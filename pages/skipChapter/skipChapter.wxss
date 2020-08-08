@@ -1,0 +1,163 @@
+.skip-chapter-header-black{
+  background-color: #000;
+}
+.skip-chapter-content{
+  background-color: #000;
+}
+.skip-chapter-top{
+  background-color: #000;
+  width: 100%;
+  padding: 20px 0 24px;
+  box-sizing: border-box;
+}
+.skip-chapter-top-content{
+  width: 100%;
+  text-align: center;
+}
+.top-content-title{
+  color: #fff;
+  font-size: 40rpx;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.top-content-text{
+  width: 235px;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, .6);
+  display: block;
+  margin: 8px auto;
+}
+.top-content-image{
+  width: 85px;
+  height: 85px;
+}
+.skip-chapter-bottom{
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 30px 25px;
+  border-radius:15px 15px 0px 0px;
+}
+.bar-video{
+  width: 650rpx;
+  height: 152rpx;
+  background-color: #F7F7F7;
+  border-radius: 16rpx;
+  display: flex;
+ flex-wrap: nowrap;
+  align-items: center;
+}
+.video-left{
+   width: 452rpx;
+   height: 152rpx;
+   padding-left: 40rpx;
+   padding-top: 26rpx; 
+   box-sizing: border-box;
+}
+.video-right{
+  width: 198rpx;
+  height: 152rpx;
+  background:url('https://hk--img.oss-cn-beijing.aliyuncs.com/20190829/course/3szChGZfEKcy6x8sTKEe.png') no-repeat 0 56rpx;
+}
+.video-ready{
+  height: 42rpx;
+ color: #000;
+ font-size: 30rpx;
+ line-height: 42rpx;
+}
+.video-progress{
+  padding-top: 20rpx;
+  padding-bottom: 8rpx;
+}
+.video-time{
+  display: flex;
+  justify-content:space-between;
+  align-items:center; 
+  color: rgb(0, 0,0,0.3);
+  font-size: 20rpx;
+  line-height: 24rpx;
+}
+.conclusion{
+  margin-top: 30px;
+}
+.conclusion-title{
+  font-size: 40rpx;
+  color: #000;
+  font-weight: 600;
+
+}
+.conclusion-list{
+  margin-top: 18px;
+}
+.conclusion-list-content{
+  overflow: hidden;
+}
+.conclusion-list-content image{
+  width: 14px;
+  height: 14px;
+  margin-right: 9px;
+  vertical-align: middle;
+  float: left;
+  margin-top: 14rpx;
+}
+.conclusion-list-text{
+  display: block;
+  width: 598rpx;
+  font-size: 30rpx;
+  color: #000000;
+  float: right;
+}
+.kip-chapter-btn{
+  width: 100%;
+  height: 52px;
+  background-color: #000;
+  border-radius: 26px;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 52px;
+  text-align: center;
+  margin-top: 60px;
+}
+.conclusion-list-content{
+  line-height: 28px;
+}
+.return-index-btn{
+  margin-top: 18px;
+  font-size: 24rpx;
+  color: #b2b2b2;
+  text-align: center
+}
+.return-index-btn image{
+  width: 10rpx;
+  height: 16rpx;
+  /* vertical-align: middle; */
+  margin-left: 5px;
+}
+.bar-scroll{
+  display:flex;
+  flex-wrap: nowrap;
+ 
+}
+.scroll-eee{
+  background:rgba(238,238,238,.2);
+}
+.scroll{
+  margin-right:4rpx;
+  background-color:#2FBAF5;
+}
+
+.progress-num {
+width: 38px;
+height: 18px;
+display: flex;
+justify-content: center;
+align-items: center;
+position: absolute;
+top: 0;
+left: 10px;
+background-color: #fff;
+border-radius: 9px;
+font-size: 24rpx;
+color: #000;
+font-weight: bold;
+}

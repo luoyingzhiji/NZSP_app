@@ -1,0 +1,47 @@
+ <view style="background-color:#000" class=" top opt-header-black {{isIphoneX?'top-x':''}}">
+    <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px;'></view>
+    <view class='header'>
+      <navigator open-type="navigateBack">
+        <image class="navigator-image {{isIphoneX?'navigator-image-x':''}}" style='top:{{statusBarHeight + 10}}px' src='../../image/index/turnLeftWhite.png'></image>
+      </navigator>
+      <text class="txt"></text>
+    </view>
+  </view>
+  <view class="{{isIphoneX?'mt170':''}} medal" style="min-height:{{promptHeight-71}}px;margin-top:{{statusBarHeight+45}}px">
+    <view class="medal-strategy">
+      <view class="medal-strategy-title">
+        <image src="../../image/my/strategy-bg-fff.png"></image>
+        <text>勋章攻略</text>
+      </view>
+      <view class="medal-strategy-introduce">
+        <text>任意选择感兴趣的进阶课程，可解锁对应主题勋章</text>
+      </view>
+      <view class="star">
+        <view class="star-left">
+          <view class="medal-grade">勋章星级</view>
+          <text class="medal-num-num">{{lightenNum.length}}</text>
+          <text class="medal-num-text">星</text>
+        </view>
+        <view class="star-right">
+          <text wx:if="{{lightenNum == 0}}">还未获得勋章</text>
+          <image wx:if="{{lightenNum != 0}}" wx:for="{{lightenNum}}" wx:key="{{index}}" src="../../image/my/star.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="medal-list">
+      <view class="medal-list-title">
+        <text>-</text><text style="margin:16rpx">专家勋章</text><text>-</text>
+      </view>
+      <view class="medal-list-content">
+        <view wx:for="{{medelImg}}" wx:key="index" class="medal-list-content-info" data-status="{{medelStatus[index]}}" data-index="{{index}}" bindtap="remind">
+          <image src="{{imagePath}}{{item}}"></image>
+          <text class="medal-list-content-info-name">{{medelName[index]}}</text>
+          <view class="medal-status">
+            <view wx:if="{{medelStatus[index] == 1}}" class="medal-status-have-obtained">已获得勋章</view>
+            <view wx:else class="medal-status-not-obtained">需完成进阶-第{{index+1}}单元</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+<include src="../partail/bottomPrompt.wxml"/> 

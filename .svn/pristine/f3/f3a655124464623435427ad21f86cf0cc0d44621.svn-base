@@ -1,0 +1,146 @@
+<!--pages/my/my.wxml-->
+ <form bindsubmit="formSubmit" report-submit="true">
+    <button class='form_button' form-type='submit' data-name='buttonName'>
+        <view class="my" style="height:{{winHeights}}px;overflow:{{overbrim}}">
+          <view class="certificate" bindtap="showCertificate">
+            <view class="certificate-content" style="background: url({{imagePath}}{{bgImg}}) no-repeat; background-size:100%;">
+               <!-- 从业者证书 -->
+              <image wx:if="{{chooseStatus == 'experts'}}" src="https://nzsplvs--img.oss-cn-shanghai.aliyuncs.com/20190905/course/advice.png"></image>
+               <!-- 爱好者证书 -->
+               <image wx:else src="https://nzsplvs--img.oss-cn-shanghai.aliyuncs.com/ac.png"></image>
+              <!-- <view class="certificate-level-name"> -->
+                <view class="certificate-name">
+                  <text>{{userInfo.realName}}</text>
+                </view>
+              <!-- </view> -->
+              <view wx:if="{{chooseStatus == 'experts'}}"  class="certificate-star">
+                <image wx:if="{{grade==1}}" class="before" src="https://nzsplvs--img.oss-cn-shanghai.aliyuncs.com/tongmobile.png"></image>
+                <image wx:if="{{grade==2}}" class="before" src="https://nzsplvs--img.oss-cn-shanghai.aliyuncs.com/yinmobile.png"></image>
+                <image wx:if="{{grade==3}}" class="before" src="https://nzsplvs--img.oss-cn-shanghai.aliyuncs.com/jinmobile.png"></image>
+                <image class="star-num" src="{{userInfoEntity.medalPath}}"></image>
+              </view>
+            </view>
+            <view wx:if="{{!certificateStatus}}" class="mask" style="height:{{winHeights}}px">
+              <view class="mask-content" bindtap="{{loginStatus?'skipCourse1':'skipRegistered'}}" data-type="basics">
+                <image src="../../image/my/unlock.png"></image>
+                <view class="unlock">
+                  <text>去解锁证书</text>
+                  <image src="../../image/my/right-fff.png"></image>
+                </view>
+              </view>
+            </view>
+            <view class="user-operation">
+              <view class="user-operation-img" bindtap="download">
+                 <image  src="../../image/my/download.png"></image>
+                 <text>下载</text>
+              </view>
+               <view class="user-operation-img"  bindtap="refresh">
+                 <image src="../../image/my/refresh.png"></image>
+                  <text>换图</text>
+              </view>
+
+              <button open-type="share" style="padding: 0px;width:122rpx;height:74rpx;border-radius:38rpx 0 0 38rpx;"> 
+                <view class="user-operation-img">
+                  <image  src="../../image/my/share.png"></image>
+                    <text>分享</text>
+                </view>
+              </button>
+           
+            </view>
+          </view>
+          <!-- bindtouchstart="startMove"
+              bindtouchend="finishMove" -->
+          <view class="user-info" style="min-height:{{winHeights-241}}px;top:{{infoTop}}px"
+            bindtouchmove="viewTouchMove"
+            bindtouchend="viewTouchEnd"
+              animation="{{animationData}}" id="the-id">
+            <view class="user-img">
+              <image wx:if="{{loginStatus}}" src="{{imagePath}}{{userInfo.avatar}}"></image>
+              <image wx:if="{{!loginStatus}}" src="../../image/my/user-img.png"></image>
+              <image wx:if="{{grade > 0&&chooseStatus == 'experts'}}" class="user-badge" src="{{imagePath}}{{userInfoEntity.imgUrl}}"></image>
+            </view>
+            <view class="login-btn" bindtap="skipRegistered" wx:if="{{!loginStatus}}">
+              <text>立即登录</text>
+              <image src="../../image/my/right-fff.png"></image>
+            </view>
+            <view  wx:if="{{loginStatus}}" class="user-info-login">
+              <text class="user-name">{{userInfo.realName}}</text>
+              <view class="user-info-site">
+                <image src="../../image/my/location.png"></image>
+                <!-- <text wx:if="{{userInfoEntity.province!='undefined'}}" style="margin-right:6rpx;">{{userInfoEntity.province}}</text> -->
+                <text>{{userInfoEntity.city}}</text>
+              </view>
+              <view wx:if="{{chooseStatus == 'experts'}}" class="user-location-list">
+                <image wx:for="{{medelImg}}" wx:key="{{index}}" src="{{imagePath}}{{item}}"></image>
+              </view>
+            </view>
+            <view wx:if="{{chooseStatus == 'experts'}}" class="user-info-content">
+              <view class="user-info-content-grade-strategy">
+                <view class="user-info-content-grade" bindtap="{{loginStatus?'skipExpertsLevel':'skipRegistered'}}">
+                  <image src="../../image/my/level.png"></image>
+                  <text>专家等级</text>
+                </view>
+                <view class="user-info-content-strategy" bindtap="{{loginStatus?'skipMedalStrategy':'skipRegistered'}}">
+                  <image src="../../image/my/strategy.png"></image>
+                  <text>勋章攻略</text>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{chooseStatus == 'experts'}}" class="user-banner">
+              <image wx:if="{{grade == 0}}" bindtap="skipCourseView" data-type="basics" src="https://nzsplvs--img.oss-cn-shanghai.aliyuncs.com/Basic_Course.png"></image>
+              <image wx:if="{{grade > 0}}" bindtap="skipCourseView" data-type="advance" src="https://nzsplvs--img.oss-cn-shanghai.aliyuncs.com/Advance_Course.png"></image>
+            </view>
+             <view wx:if="{{chooseStatus == 'hobby'}}" class="user-banner">
+              <image  bindtap="skipCourseView" data-type="basics" src="https://nzsplvs--img.oss-cn-shanghai.aliyuncs.com/Basic_Course%202.png"></image>
+             
+            </view>
+            <view class="user-activity" bindtap="skipActivity" wx:if="{{activity != ''}}">
+              <view class="user-title">活动提醒</view>
+              <view class="user-activity-title">
+                <view class="user-activity-title-text">
+                  {{activity.name}}
+                </view>
+                <view class="user-activity-title-block">即将开始</view>
+              </view>
+              <view class="user-activity-bottom">
+                <view class="user-activity-site">
+                  <image src="../../image/NZSP_index/icon_20x20_location.png"></image>
+                  <text>{{activity.address}}</text>
+                </view>
+                <view class="user-activity-time">
+                  <text class="start-time">{{startTime}}</text>
+                  <text style="margin:0 4rpx;">-</text>
+                  <text class="end-time">{{endTime}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="select-list">
+              <view class="select-list-content" bindtap="{{loginStatus?'skipMyData':'skipRegistered'}}">
+                <text class="select-list-content-text">我的资料</text>
+                <image src="../../image/my/right-000.png"></image>
+              </view>
+              <view class="select-list-content" bindtap="{{loginStatus?'skipCollect':'skipRegistered'}}">
+                <text class="select-list-content-text">我的收藏</text>
+                <image src="../../image/my/right-000.png"></image>
+              </view>
+              <view wx:if="{{chooseStatus == 'experts'}}" class="select-list-content" bindtap="skipInstroduce">
+                <text class="select-list-content-text">新西兰旅游专家计划</text>
+                <image src="../../image/my/right-000.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+    </button>
+  </form>
+<!-- 底部出现的提示弹窗    -->
+<view wx:if="{{bottomPromptS==true}}" class="pop_up specialist_up" style="position:fixed;top:0rpx;z-index:9998">
+      <view class="specialist_upBox">
+         <view class="specialist_upBox_img">
+            <image class="specialist_upBox_img_flowers_chick" src="../../image/xinxilan/flowers-chick.png"></image>
+         </view>
+         <view class="specialist_upBoxOne">解锁资格</view>
+         <view class="specialist_upBoxOne1">完成{{basicsCount}}个单元的基础课程，就能获得{{chooseStatus=='experts'?'铜牌':''}}证书</view>
+          <view  class="specialist_upBoxTwo" bindtap="skipCourseone">好的</view>
+         
+      </view>
+ </view>

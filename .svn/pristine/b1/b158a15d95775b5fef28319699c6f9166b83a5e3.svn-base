@@ -1,0 +1,131 @@
+<!-- 导航栏 -->
+<view class='top'>
+  <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px'></view>
+  <view class="header">
+    <text style="font-size:36rpx" class="titleWeight">旅游专家课程</text>
+  </view>
+</view>
+  <form bindsubmit="formSubmit" report-submit="true">
+    <button class='form_button' form-type='submit' data-name='buttonName'>
+        <view class="course " style='margin-top:{{statusBarHeight + 44}}px'>
+            <view hidden="{{!loginStatus}}" class="is-login">
+              <view class="course-classify" style="top:{{statusBarHeight + 45}}px">
+                <view class="course-classify-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">{{chooseStatus == 'experts'?'基础课程':'课程中心'}}</view>
+                <view  wx:if="{{chooseStatus == 'experts'}}" class="course-classify-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">进阶课程</view>
+                <view  wx:if="{{chooseStatus == 'experts'}}" class="border-bottom-000" style="left:{{basicsLeft}}rpx" animation="{{animationData}}"></view>
+              </view>
+              <view style="margin-top:{{statusBarHeight+90}}px;">
+                <swiper current="{{currentTab}}" class='swiper' style="height:{{scrollViewHeight-45}}px;" duration="300" bindchange="switchTab">
+                  <swiper-item>
+                    <scroll-view scroll-y="true" bindscrolltolower="loadMore" style="width: 100%;height:{{scrollViewHeight-45}}px;position: absolute;top:0;left:0;-webkit-overflow-scrolling:touch">
+                      <view class="schedule" style="z-index:9999" >
+                        <view class="study-schedule">
+                          <view class="study-schedule-content" >
+                            <view class="schedule-content-title">
+                              <text>基础课程学习进度</text>
+                            </view>
+                            <view class="schedule-content-num">
+                              <text class="formerly-num">{{basicsStudyUnlock}}</text>
+                              <text decode="true" class="sum-up">/{{basicsCourseList.length}}</text>
+                            </view>
+                          </view>
+                      
+                        </view>
+                               <progress class="ps" percent="{{progressUp}}" stroke-width="10" color="#2FBAF5" backgroundColor="#E5F5FB" border-radius="8" />
+                      </view>
+                      <view class="chapter">
+                        <view class="chapter-list" wx:for="{{basicsCourseList}}" wx:for-item="basicsCourse" wx:key="index" 
+                        bindtap="courseSkip" data-index="{{index}}" data-id="{{basicsCourse.id}}" data-section-num="{{index+1}}">
+                          <view class="chapter-image">
+                            <image src="{{imagePath}}{{basicsCourse.logo}}"></image>
+                          </view>
+                          <view class="chapter-num">第{{index+1}}章</view>
+                          <image wx:if="{{basicsCourse.percentage<100&&basicsCourse.percentage>0}}" src="../../image/NZSP_index/tag_studying.png" class="is-learning-img"></image>
+                           <image wx:if="{{basicsCourse.percentage==100}}" src="../../image/NZSP_index/studying-complete.png" class="is-learning-img"></image>
+                          <view class="introduce">
+                            <view class="chapter-introduce">
+                              <view class="introduce-text">
+                                <view style="height:48rpx;display:flex;align-items:center;">
+                                  <text class="introduce-text-title">{{basicsCourse.name}}</text>
+                                  <!-- <text wx:if="{{basicsStudyUnlock>index}}" class="study-status-block study-status">已完成</text> -->
+                                </view>
+                                <view class="introduce-text-content"> {{basicsCourse.takeAway}}</view>
+                              </view>
+                              <view class="introduce-progress">
+                                <view class="course-medal">
+                                <image wx:if="{{basicsStudyUnlock<index}}" src="../../image/NZSP_course/icon_20x20_locked_black.png"></image>
+                                <circle wx:if="{{basicsStudyUnlock>=index}}" draw='circwewle' per = '{{basicsCourse.percentage}}' r = '58'></circle>
+                                </view>
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </scroll-view>
+                  </swiper-item >
+                  <swiper-item  wx:if="{{chooseStatus == 'experts'}}">
+                    <scroll-view wx:if="{{grade > 0}}" scroll-y="true" bindscrolltolower="loadMore" style="width: 100%;height:{{scrollViewHeight-45}}px;position: absolute;top:0;left:0;-webkit-overflow-scrolling:touch">
+                     
+                      <view class="chapter" style="margin-top:32rpx;">
+                        <view style="color:rgba(0,0,0);font-size:30rpx;line-height:42rpx;font-weight:600">进阶课程简介</view>
+                        <view style="color:rgba(0,0,0,0.4);font-size:26rpx;line-height:36rpx;margin-top:8rpx;margin-bottom:16rpx;">任意选择感兴趣的进阶课程，可解锁对应主题勋章，勋章将在个人中心自动点亮，证书也会增加一星哦</view>
+                        <view bindtap="skipAdvance" data-id="{{advanceCourse.id}}"  data-section-num="{{index}}" class="chapter-list" wx:for="{{advanceCourseList}}" wx:for-item="advanceCourse" wx:key="index">
+                        
+                            <view class="chapter-image">
+                              <image src="{{imagePath}}{{advanceCourse.logo}}"></image>
+                            </view>
+                            <view class="chapter-num">第{{index+1}}章</view>
+                              <image wx:if="{{advanceCourse.percentage<100&&advanceCourse.percentage>0}}" src="../../image/NZSP_index/tag_studying.png" class="is-learning-img"></image>
+                             <image wx:if="{{advanceCourse.percentage == 100}}" src="../../image/NZSP_index/studying-complete.png" class="is-learning-img"></image>
+                            <view class="introduce">
+                              <view class="chapter-introduce">
+                              <view class="introduce-text">
+                                <view style="height:48rpx;display:flex;align-items:center;">
+                                  <text class="introduce-text-title">{{advanceCourse.name}}</text>
+                                  <!-- 已完成 -->
+                                  <!--<text wx:if="{{advanceStudyUnlock>index}}" class="study-status-block study-status">已完成</text>-->
+                                </view>
+                                <view class="introduce-text-content"> {{advanceCourse.takeAway}}</view>
+                              </view>
+                              <view class="introduce-progress">
+                                <view class="course-medal">
+                                  <!-- 徽章 -->
+                                  <image wx:if="{{advanceCourse.percentage == 100}}" src="{{imagePath}}{{advanceCourse.medal}}"></image>
+                                  <!-- 灰色图片 -->
+                                  <image wx:if="{{advanceCourse.percentage == 0}}" src="{{imagePath}}{{advanceCourse.medalNo}}"></image>
+                                  <circle  wx:if="{{advanceCourse.percentage > 0 &&advanceCourse.percentage<100}}" draw='circwewle' per = '{{advanceCourse.percentage}}' r = '58'></circle>
+                                </view>
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </scroll-view>
+                    <view wx:if="{{grade == 0}}" class="not-unlock-course" style="height:{{viewHeight}}px">
+                        <image src="../../image/NZSP_course/not-unlock-course.png"></image>
+                        <view class="not-unlock-course-title">进阶课程</view>
+                        <view style="text-align: left;margin-left: 100rpx;">
+                             <view class="not-unlock-course-instructions">• 进阶课程为铜牌等级和以上的专家设计</view>
+                             <view class="not-unlock-course-instructions">• 助力打造更专业的新西兰主题游产品</view>
+                             <view class="not-unlock-course-instructions">• 获得专属主题勋章</view>
+                        </view>
+                      
+                        <view bindtap="skipBasicsCourse" class="skipBasicsCourse">前往基础课程</view>
+                    </view>
+                  </swiper-item >
+                </swiper>
+              </view>
+            </view>
+          
+          <view hidden="{{loginStatus}}" class="not-login">
+            <view class="not-login-img">
+              <image src="../../image/NZSP_course/not-login.png"></image>
+            </view>
+            <view class="not-login-title">{{chooseStatus == 'experts'?'想成为新西兰旅游专家吗？':'想成为新西兰旅游达人吗？'}}</view>
+            <view class="not-login-instructions">登录可获取新西兰旅游局的
+旅游知识 | 官方认证{{chooseStatus == 'experts'?'| 活动资讯':''}} </view>
+            <view bindtap="skipRegister" class="not-login-btn">立即登录</view>
+          </view>
+        </view>
+    </button>
+  </form>    

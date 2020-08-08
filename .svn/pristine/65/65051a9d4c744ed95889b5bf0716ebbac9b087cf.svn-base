@@ -1,0 +1,208 @@
+.experts-level{
+  width: 100%;
+  background-color: #000;
+  position: absolute;
+}
+.experts-info{
+  padding: 0 50rpx;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #000;
+  padding-top: 20rpx;
+}
+.experts-info-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.experts-info-title-left,.experts-info-title-right{
+  display:flex;
+  align-items:center;
+}
+.experts-info-title-right text{
+  font-size: 26rpx;
+  color: #fff;
+  margin-left: 7px;
+}
+.experts-info-title-right image{
+  width: 15px;
+  height: 19px;
+}
+.experts-info-title-left image{
+  width: 38rpx;
+  height: 44rpx;
+  margin-right: 8rpx;
+}
+.experts-info-title-left text{
+  font-size: 44rpx;
+  color: #fff;
+  height: 44rpx;
+  line-height: 44rpx;
+  font-weight: 600;
+}
+.experts-info-introduce{
+  margin-top: 4px;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, .4)
+}
+.experts-info-details{
+  width: 100%;
+  height: 130px;
+  margin-top: 25px;
+  display: flex;
+  justify-content:flex-start;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 40rpx 50rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.experts-info-img{
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+.experts-info-img image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.experts-info-name{
+  font-size: 22rpx;
+  color: #FFFFFF;
+  margin-left: 30rpx;
+}
+.experts-info-medal{
+  width: 60px;
+  height: 67px;
+  font-size: 0;
+  position: absolute;
+  top: -25px;
+  right: 25px;
+}
+.experts-info-medal image{
+  width: 100%;
+  height: 100%;
+}
+.experts-list{
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 185px;
+  padding-bottom: 103px;
+}
+.experts-list-title{
+  color: rgba(0, 0, 0, .2);
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx 0 10rpx 0;
+  box-sizing: border-box;
+}
+.experts-list-content{
+  width: 100%;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+}
+.content-list{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .07);
+}
+.content-list-left{
+  overflow: hidden;
+  padding: 30rpx 0;
+  display: flex;
+  align-items: center;
+}
+.content-list-index{
+  width: 36px;
+  color: rgba(0, 0, 0, .08);
+  font-size: 56rpx;
+  font-weight: bold;
+  margin-right: 12px;
+  float: left;
+}
+.content-list-medal{
+  width: 360rpx;
+  float: right;
+}
+.content-list-medal-name{
+  color: #000;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+.content-list-medal-introduce{
+  font-size: 22rpx;
+  color: rgba(0, 0, 0, .3);
+  margin-top: 2px;
+}
+.content-list-cuprum-status-unlock{
+  width:72px;
+  height:22px;
+  background:linear-gradient(146deg,rgba(144,62,18,1) 0%,rgba(212,144,90,1) 28%,rgba(244,183,125,1) 41%,rgba(194,126,76,1) 57%,rgba(111,44,10,1) 100%);
+  border-radius:11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-list-cuprum-status-unlock image ,.content-list-silver-status-unlock image{
+  width: 8px;
+  height: 10px;
+  margin-right: 3px;
+}
+.content-list-cuprum-status-unlock text{
+  font-size: 22rpx;
+  color: #723F1C;
+}
+.content-list-silver-status-unlock text{
+  font-size: 22rpx;
+  color: #78797D;
+}
+.content-list-silver-status-unlock{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:72px;
+  height:22px;
+  background:rgba(200,203,206,1) linear-gradient(146deg,rgba(170,172,176,1) 0%,rgba(191,193,196,1) 26%,rgba(210,212,215,1) 44%,rgba(243,245,248,1) 56%,rgba(219,221,225,1) 67%,rgba(130,132,137,1) 100%);
+  border-radius:11px;
+}
+.content-list-status-unlocked text{
+  color: #2FBAF5;
+  font-size: 22rpx;
+}
+.experts-btn{
+  width: 100%;
+  padding: 0 50rpx 32rpx 50rpx;
+  box-sizing: border-box;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+.experts-btn-content{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  border-radius:25px;
+}
+.experts-btn-prompt text{
+  height: 35px;
+  line-height: 35px;
+  font-size: 22rpx;
+  color: #000;
+}
+.experts-btn-content text{
+  font-size: 30rpx;
+  color: #fff;
+}

@@ -1,0 +1,82 @@
+<!-- 导航栏 -->
+<view style="background-color:#000" class=" top opt-header-black {{isIphoneX?'top-x':''}}">
+  <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px'></view>
+  <view class='header'>
+    <navigator open-type="navigateBack">
+      <image class="navigator-image {{isIphoneX?'navigator-image-x':''}}" style='top:{{statusBarHeight + 10}}px' src='../../image/index/turnLeftWhite.png'></image>
+    </navigator>
+  </view>
+</view>
+<!-- 内容 -->
+<view class="info" style=" position: relative; top:{{statusBarHeight + 45}}px;">
+  <view class="section">{{sectionInfo.title}}</view>
+  <view class="info-centre">
+    <view class="section-nav">
+      <view class="section-title">
+        <text>{{sectionInfo.name}}</text>
+      </view>
+    </view>
+    <view class="info-image">
+      <image src="{{imagePath}}{{sectionInfo.logo}}" ></image>
+    </view>
+    <!-- 准备 -->
+    <view class="info-prepare" wx:for="{{sectionList}}" wx:for-item="section" wx:for-index="index" wx:key="index" >
+       
+      <view class="prepare-left">
+        <view class="prepare-leftall">
+          <text>{{section.serialNumber}}</text>
+        </view>
+      
+      </view>
+      <view class="prepare-right">
+      <!-- {{section.label!=''?'prepare-righttitle':'prepare-righttitle1'}} -->
+        <view wx:if="{{section.label!=''}}" class="prepare-righttitle">{{section.name}}</view>
+          <view wx:if="{{section.label==''}}" class="prepare-righttitle1">{{section.name}}</view>
+        <view class="prepare-righttype" wx:if="{{section.label!=''}}">{{section.label}}</view>
+      </view>
+    
+    </view>
+  </view>
+  <!-- 章节简介 -->
+  <import src="../../wxParse/wxParse.wxml" />
+  <view class="chapter-introduction">
+    <view class="introduction-centre">
+      <view class="introduction">章节简介</view>
+      <view style="width:60rpx;height:88rpx;position:absolute;left:50rpx;padding-top:80rpx;">
+       <image style="width:34rpx;height:36rpx;" src="../../image/xinxilan/quote.png"/>
+     </view>
+      <view class="introduction-box">
+        <!-- <view class="introduction-img" style="">
+        <image src="../../image/xinxilan/quotes.png"></image>
+      </view> -->
+        <view class="introduction-title">
+        <view class="wxParse">
+          <template is="wxParse" data="{{wxParseData:sectionContent.nodes}}" />
+        </view>
+      
+        </view>
+      </view>
+      <view class="section-content" style="margin:0 40rpx;" >
+        <view class="wxParse">
+          <template is="wxParse" data="{{wxParseData:sectionContentTwo.nodes}}" />
+        </view>
+      </view>
+     
+    </view>
+     <view class="questions">请您带着以下问题来学习</view>
+    <view class="questions-study" wx:for="{{problems}}" wx:for-item="problem" wx:for-index="index" wx:key="index">
+      <view class="questions-left">
+        <view>
+          <image class="questions-ico" src="../../image/xinxilan/feather.png"></image>
+        </view>
+      </view>
+      <view  class="questions-right">
+        <view class="questions-all">{{problem}} </view>
+      </view>
+    </view>
+     <view class="info-course" style="margin-top: 120rpx;" bindtap="coursetap">进入课程</view>
+    <view class="info-time">本章学习时间约 {{sectionInfo.studyTime}}分钟</view>
+  </view>
+
+</view>
+<include src="../partail/dialog.wxml"/> 

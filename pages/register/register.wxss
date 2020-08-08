@@ -1,0 +1,287 @@
+
+.registerInfo{
+  width: 750rpx;
+
+  background-color:#000;
+}
+.img{
+  margin: 44rpx 430rpx 18rpx 70rpx;
+   width: 250rpx;
+   height: 74rpx;
+
+}
+.registerInfo-title{
+  margin: 0 0 68rpx 70rpx;
+  /* width: 520rpx; */
+  height: 56rpx;
+  color: #fff;
+  font-size:40rpx;
+  line-height: 56rpx;
+font-weight:600;
+
+}
+.register-down{
+  background-color: #fff;
+  width: 750rpx;
+  border-radius: 30rpx 30rpx 0 0;
+}
+.person{
+ padding: 60rpx 520rpx 12rpx 70rpx;
+  width:160rpx;
+height:56rpx;
+font-size:40rpx;
+font-weight:600;
+color:#000;
+line-height:56rpx;
+}
+.person-info{
+  margin: 0 60rpx;
+  width:630rpx;
+height:126rpx;
+box-shadow:0px 0px 0px 0px rgba(0,0,0,0.08);
+font-size: 30rpx;
+display: flex;
+align-items: center;
+/* justify-content: space-between; */
+border-bottom: 2rpx solid RGBA(235, 235, 235, 1);
+}
+.person-left{
+  margin-left: 10rpx;
+  width: 218rpx;
+  height: 126rpx;
+  display: flex;
+  align-items: center;
+  margin-top: -27rpx;
+
+}
+.person-right{
+  /* width: 270rpx; */
+  line-height:40rpx; 
+  margin-top: 44rpx;
+  margin-bottom: 44rpx
+}
+.inH{
+  width: 270rpx;
+  height: 40rpx;
+  color:rgba(51, 51, 51, .15);
+  font-size:30rpx;
+}
+.starry{
+  text-align: center;
+  margin-top: 30rpx;
+  margin-right: 8rpx;
+  width: 12rpx;
+  height: 32rpx;
+ color: rgba(47, 186, 245, 1); 
+}
+.personinfo{
+ padding-top: 34rpx;
+ 
+  
+  font-size:30rpx;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:36rpx;
+}
+.consent{
+ 
+  margin-bottom: 42rpx;
+  
+  height: 34rpx;
+  font-size:22rpx;
+  text-align: center;
+
+font-weight:400;
+color:rgba(0,0,0,1);
+line-height:32rpx;
+}
+.over{
+  margin: auto;
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .2);
+  border-radius: 48rpx;
+  font-size:28rpx;
+
+font-weight:600;
+color:rgba(255,255,255,1);
+line-height:40rpx;
+}
+.overone{
+  margin: 0 auto;
+  width: 630rpx;
+  height: 96rpx;
+  background-color: #000;
+  border-radius: 48rpx;
+  font-size:28rpx;
+text-align: center;
+font-weight:600;
+color:rgba(255,255,255,1);
+line-height:96rpx;
+}
+.addNewAdress{
+ margin:0 50rpx 32rpx 50rpx ;
+ width: 650rpx;
+ height: 100rpx;
+ font-size: 30rpx;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+  background: #000;
+  color: white;
+  border-radius: 52rpx ;
+  
+  
+}
+/* 
+判断弹窗 */
+.prompt{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.prompt-box{
+  width: 135px;
+  height: 120px;
+  padding: 20px 22px 19px;
+  box-sizing: border-box;
+  background-color:rgba(0,0,0,.85);
+  border-radius:8px;
+  position:fixed;
+ 
+  left: 50%;
+  margin-left: -67.5px;
+  top: 50%;
+  margin-top: -60px;
+  text-align: center;
+  
+}
+.prompt-box-image{
+  width: 37px;
+  height: 37px;
+  display: block;
+  margin: 0 auto;
+}
+.prompt-box-text{
+  margin-top: 24rpx;
+ 
+  height: 60rpx;
+   line-height:30rpx;
+}
+.prompt-box-text text{
+  font-size: 22rpx;
+  color: #fff;
+  
+ 
+}
+.matching{
+  width: 630rpx;
+  height: 304rpx;
+  background: rgba(0,0,0,0.08);
+  margin: 0 60rpx 18rpx 60rpx;
+  
+}
+.matchInfo{
+  margin: 0 40rpx;
+  width: 550rpx;
+  height: 68rpx;
+  border-bottom: 2rpx solid rgba(0,0,0,0.15);
+  color: rgba(51, 51, 51, 0.3);
+  font-size: 26rpx;
+  line-height: 36rpx;
+  display: flex;
+  align-items: center;
+  
+  
+}
+.wXbtn{
+ height:48rpx;background:red;
+  font-size: 30rpx;
+  color: rgba(51,51,51,0.15);
+  background: #fff;
+   /* 清除position：relative */
+   position: static;
+  display: flex;
+  align-items: center;
+ margin-left: -30rpx;
+  /* position: absolute;
+  right: 76rpx;
+  top:522rpx; */
+ 
+}
+
+/* 匹配选择公司 */
+.matching{
+  width: 630rpx;
+  height: 304rpx;
+  background: rgba(0,0,0,0.08);
+  margin: 0 60rpx 18rpx 60rpx;
+  overflow :auto;
+  
+}
+.matchInfo{
+  margin: 0 40rpx;
+  width: 550rpx;
+  height: 68rpx;
+  border-bottom: 2rpx solid rgba(0,0,0,0.15);
+  color: rgba(51, 51, 51, 0.3);
+  font-size: 26rpx;
+  line-height: 36rpx;
+  display: flex;
+  align-items: center
+}
+
+.fontz{
+  color:rgba(47, 186, 245, 1);
+}
+.card{
+  width:630rpx;height:272rpx;
+  display: flex;
+  flex-wrap:wrap;
+  /* justify-content: center;
+  align-items: center; */
+  font-size: 22rpx;
+  line-height: 32rpx;
+  border-bottom: 2rpx solid RGBA(235, 235, 235, 1);
+}
+.card-left{
+  padding-top: 42rpx;
+  padding-left: 10rpx;
+  width: 156rpx;
+  height: 36rpx;
+  color: rgba(51, 51, 51, 0.45);
+   font-size: 26rpx;
+    line-height: 36rpx;
+}
+.card-right{
+  /* float: right; */
+  padding-top: 40rpx;
+  padding-left: 198rpx;
+}
+.card-up{
+  width:256rpx;
+  height: 142rpx;
+
+  display: block;
+}
+.card-down{
+display: flex;
+justify-content: center;
+align-items: center;
+padding-left: 12rpx;
+padding-top: 16rpx;
+font-size: 22rpx;
+font-weight:400;
+color:rgba(0,0,0,1);
+line-height:16px;
+
+
+}
+.card-down image{
+  width: 22rpx;
+  height: 24rpx;
+ 
+}

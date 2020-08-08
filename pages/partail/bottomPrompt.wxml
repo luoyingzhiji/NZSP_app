@@ -1,0 +1,17 @@
+<!-- 底部出现的提示弹窗  -->
+<view hidden="{{bottomPromptStatus}}" bindtap="disappear" animation="{{animationData}}" class="pop_up specialist_up" style="position:fixed;top:0rpx;z-index:2">
+      <view class="specialist_upBox">
+         <view class="specialist_upBox_img">
+            <image wx:if="{{bottomPromptType == 'qualification'}}" class="specialist_upBox_img_flowers_chick" src="../../image/xinxilan/flowers-chick.png"></image>
+            <image wx:if="{{bottomPromptType == 'userLogin'}}" class="specialist_upBox_img_chick" src="../../image/xinxilan/1028.png"></image>
+            <image wx:if="{{bottomPromptType == 'copper'}}" class="specialist_upBox_img_medal" src="../../image/xinxilan/copper.png"></image>
+            <image wx:if="{{bottomPromptType == 'silver'}}" class="specialist_upBox_img_medal" src="../../image/xinxilan/silver.png"></image>
+            <image wx:if="{{bottomPromptType == 'gold'}}" class="specialist_upBox_img_medal" src="../../image/xinxilan/gold.png"></image>
+            <image wx:if="{{bottomPromptType == 'custom'}}" class="specialist_upBox_img_medal" src="{{imagePath}}{{promptImg}}"></image>
+         </view>
+         <view class="specialist_upBoxOne">{{bottomPromptTitle}}</view>
+         <view class="specialist_upBoxOne1">{{bottomPromptText}}</view>
+          <view wx:if="{{bottomBtnType == 'course'}}" class="specialist_upBoxTwo" bindtap="skipCourse">{{btnText}}</view>
+          <view wx:if="{{bottomBtnType == 'download'}}" style="{{btnText=='保存成功!'?'background: rgba(0,0,0,0.4)':''}}" class="specialist_upBoxTwo" bindtap="downloadBadge">{{btnText}}</view>
+      </view>
+ </view>

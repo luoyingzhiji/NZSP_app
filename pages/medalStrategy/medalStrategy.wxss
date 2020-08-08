@@ -1,0 +1,130 @@
+.medal{
+  width: 100%;
+  background-color: #FBFBFB;
+}
+.medal-strategy{
+  width: 100%;
+  background-color: #000;
+  padding: 0 50rpx 136rpx;
+  box-sizing: border-box;
+  position: relative;
+  padding-top: 20rpx;
+}
+.medal-strategy-title{
+  display:flex;
+  align-items:center;
+  padding: 0 10rpx;
+}
+.medal-strategy-title image{
+  width: 36rpx;
+  height: 44rpx;
+  margin-right: 4px;
+}
+.medal-strategy-title text{
+  font-size: 44rpx;
+  color: #fff;
+  height: 44rpx;
+  line-height: 44rpx;
+  font-weight: 600
+}
+.medal-strategy-introduce{
+  margin-top: 6px;
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, .4);
+  padding: 0 10rpx;
+}
+.star{
+  width: 650rpx;
+  height: 77px;
+  background-color: #fff;
+  border-radius: 8px;
+  display:flex;
+  position: absolute;
+  left: 50rpx;
+  bottom: -70rpx;
+  box-sizing: border-box;
+  box-shadow:4px 2px 15px 0px rgba(89,89,89,0.06);
+}
+.star-left{
+  border-right: 1px solid rgba(0, 0, 0, .08);
+  padding: 28rpx 38rpx 28rpx 48rpx;
+}
+.medal-num{
+  /* height: 36rpx; */
+}
+.medal-num-num{
+  font-size: 36rpx;
+  color: #000;
+  margin-right: 3px;
+  font-weight: bold;
+ 
+}
+.medal-num-text{
+  font-size: 30rpx;
+  color: #000;
+  font-weight: bold;
+}
+.medal-grade{
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, .3);
+  display: block;
+}
+.star-right{
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  padding: 0 48rpx;
+}
+.star-right image{
+  width: 54rpx;
+  height: 54rpx;
+  margin-right: 3px;
+}
+.medal-list{
+  width: 100%;
+  background-color: #FBFBFB;
+  text-align: center;
+  padding-top: 68px;
+}
+.medal-list-title{
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+}
+.medal-list-title text{
+  font-size: 22rpx;
+  color: rgba(0, 0, 0, .2)
+}
+.medal-list-content{
+  padding: 0 45rpx;
+  box-sizing: border-box;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  flex-wrap:wrap;
+  padding-bottom: 30px;
+}
+.medal-list-content-info{
+  width: 50%;
+  margin-bottom: 50rpx;
+  text-align: center;
+}
+.medal-list-content-info image{
+  width: 114px;
+  height: 114px;
+}
+.medal-list-content-info-name{
+  font-size: 30rpx;
+  color: #000;
+   font-weight: 600;
+   display: block;
+}
+.medal-status-have-obtained{
+  font-size: 22rpx;
+  color: #2FBAF5;
+}
+.medal-status-not-obtained{
+  font-size: 22rpx;
+  color: rgba(0, 0, 0, .3);
+}

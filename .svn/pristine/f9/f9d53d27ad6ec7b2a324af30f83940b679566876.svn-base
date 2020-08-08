@@ -1,0 +1,12 @@
+<view class="experts-upgrade" hidden="{{upgradeStatus}}" style="height:{{winHeight}}px">
+  <view class="experts-upgrade-content">
+    <image wx:if="{{type == 1}}" class="experts-upgrade-content-img" src="../../image/common/copper.png"></image>
+    <image wx:if="{{type == 2}}" class="experts-upgrade-content-img" src="../../image/common/silver.png"></image>
+    <image wx:if="{{type == 3}}" class="experts-upgrade-content-img" src="../../image/common/gold.png"></image>
+    <view class="experts-upgrade-content-title">{{text}}</view>
+    <view class="experts-upgrade-content-btn">
+      <view bindtap="returnBtn" class="return-btn btn">返回</view>
+      <view bindtap="detailsBtn" class="details-btn btn">查看证书</view>
+    </view>
+  </view>
+</view>

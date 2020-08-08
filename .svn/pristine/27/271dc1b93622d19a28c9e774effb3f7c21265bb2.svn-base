@@ -1,0 +1,69 @@
+<view class="top {{isIphoneX?'top-x':''}} exam-header-black">
+  <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px'></view>
+  <view class='header'>
+    <!-- <navigator open-type="navigateBack"> -->
+      <image bindtap="navigateBack" class="navigator-image {{isIphoneX?'navigator-image-x':''}}" style='top:{{statusBarHeight + 10}}px'           src='../../image/index/turnLeftWhite.png'></image>
+    <!-- </navigator> -->
+    <text style="color:#fff;" class="titleWeight">{{sectionTitle}}</text>
+  </view>
+   <!-- 进度条 -->
+    <view style="width:100%;height:36rpx;position: fixed;left:0;top:{{statusBarHeight + 45}}px;z-index:22;background-color:#000;display: flex;align-items: center;" class="bar-scroll">
+      <view class="daughter-progress scroll-eee" style="width:100%;height:3px;">
+     <view class="scroll" style="height:3px;width:{{progressLeft}}px"></view>
+      </view>
+      <view class="progress-num" style="left:{{progressLeft-38 < 0 ? 0 : progressLeft-38}}px">{{studyProgress}}%</view>
+    </view>
+</view>
+<view class="exam-content" style="margin-top:{{statusBarHeight+48}}px">
+  <view class="chapter">{{smallSection}}</view>
+  <view class="exam-title">
+    <view class="exam-title-left">
+      <text class="chapter-title">小节测验</text>
+    </view>
+  </view>
+  <view class="exam-questions">
+    <view class="exam-questions-content" wx:for="{{questionList}}" wx:for-item="question"  wx:for-index="questionIndex"
+      wx:key="{{questionIndex}}" id="exam-questions-content{{questionIndex}}" >
+      <view class="exam-questions-content-num">
+        <text class="content-num-current">0{{questionIndex+1}}</text>
+        <text  class="content-num-total" style="margin-left:2rpx;margin-right:2rpx;">/</text>
+        <text  class="content-num-total">0{{questionList.length}}</text>
+      </view>
+      <view class="exam-questions-content-rubric">
+        {{question.content}}
+      </view>
+      <view class="exam-questions-content-options">
+        <block wx:for="{{question.optionList}}" wx:key="{{index}}" wx:for-item="option">
+        <!-- 未选择 -->
+          <view wx:if="{{!option.isUserAnswer}}" bindtap="choose" data-parentIndex="{{questionIndex}}" data-index="{{index}}" class="exam-questions-option">
+            <text>{{option.optionChar}} : {{option.optionContent}}</text>
+          </view>
+          <!-- 选中 -->
+          <view wx:if="{{!question.isDo&&option.isUserAnswer}}" bindtap="choose" data-parentIndex="{{questionIndex}}" data-index="{{index}}" class="pitch-on exam-questions-option">
+            <text>{{option.optionChar}} : {{option.optionContent}}</text>
+          </view>
+          <!-- 正确选项 -->
+          <view wx:if="{{question.isDo&&option.isAnswer&&option.isUserAnswer}}" bindtap="choose" data-parentIndex="{{questionIndex}}" data-index="{{index}}" class="correct exam-questions-option">
+            <text>{{option.optionChar}} : {{option.optionContent}}</text>
+            <image src="../../image/exam/correct.png"></image>
+          </view>
+
+           <!-- 错误选项 -->
+          <view wx:if="{{question.isDo&&!option.isAnswer&&option.isUserAnswer}}" bindtap="choose" data-parentIndex="{{questionIndex}}" data-index="{{index}}" class="error exam-questions-option">
+            <text>{{option.optionChar}} : {{option.optionContent}}</text>
+             <image src="../../image/exam/error.png" node="widthFix"></image>
+          </view>
+        
+        </block>
+      </view>
+    </view>
+    <view class="submit-paper-list" wx:if="{{examTbn==true}}">
+      <!-- <button wx:if="{{nextcourseSection>0}}" class="the-previous-section" bindtap="thePreviousSection"><image src="../../image/xinxilan/return.png"></image><text>返回上一页</text></button> -->
+       <button class="the-previous-section" bindtap="thePreviousSection"><image src="../../image/xinxilan/return.png"></image><text>返回上一页</text></button>
+         <button class="submit-paper" bindtap="submitPaper" disabled="{{submit}}">{{isSubmit?'提交试卷':'重新提交'}}</button>
+      <!-- <button class="{{(nextcourseSection>0)?'submit-paper':'submit-paperone'}}" bindtap="submitPaper" disabled="{{submit}}">{{isSubmit?'提交试卷':'重新提交'}}</button> -->
+    </view>
+  </view>
+</view>
+<include src="../partail/examPrompt.wxml"/> 
+<include src="../partail/operationPrompt.wxml"/> 

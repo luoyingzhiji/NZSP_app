@@ -1,0 +1,232 @@
+
+@import "../../wxParse/wxParse.wxss";
+/* .nar-top{
+  width: 750rpx;
+  height: 176rpx;
+  background-color: #000;
+  position: relative;
+} */
+.info{
+  width: 750rpx;
+  background-color: #000;
+}
+.section{
+  margin-left: 40rpx;
+  margin-bottom: 2rpx;
+  color: #2FBAF5;
+  font-size: 20rpx;
+  height: 28rpx;
+  font-family: "苹方-简 中黑体";
+  line-height: 28rpx;
+  letter-spacing: 4rpx;
+
+}
+.info-centre{
+  margin: 0 40rpx;
+}
+.section-nav{
+  height: 72rpx;
+  margin-bottom: 40rpx;
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.prepare-righttitle1{
+  padding-top: 16rpx;
+    height: 44rpx;
+  color: #FFFFFF;
+  
+  font-size: 32rpx;
+  line-height: 44rpx;
+  
+}
+.section-title{
+ 
+  height: 72rpx;
+  color: #fff;
+  font-size: 50rpx;
+  line-height: 72rpx;
+ font-weight: 700;
+}
+/* 图片 */
+.info-image image{
+  width: 670rpx;
+  height: 320rpx;
+  border-radius: 12rpx;
+  margin-bottom: 60rpx;
+ 
+}
+/* 准备 */
+.info-prepare{
+  width: 650rpx;
+}
+.prepare-left{
+  float: left;
+  margin-top: 2rpx;
+  width: 72rpx;
+  
+  
+}
+.prepare-leftall{
+  width: 72rpx;
+  height: 72rpx;
+  /* background-color: #2FBAF5; */
+  border-radius: 50%;
+  margin-bottom: 48rpx;
+ 
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  
+}
+.prepare-leftall text{
+  width: 36rpx;
+  height: 40rpx;
+  font-size: 18rpx;
+  line-height: 20rpx;
+  color: #2FBAF5;
+}
+.prepare-right{
+  overflow: hidden;
+  margin-left: 122rpx;
+}
+.prepare-righttitle{
+  height: 44rpx;
+  color: #FFFFFF;
+  font-family: "苹方-简 中黑体";
+  font-size: 32rpx;
+  line-height: 44rpx;
+  margin-bottom: 4rpx;
+}
+.prepare-righttype{
+   height: 32rpx;
+  color: rgb(255, 255, 255,0.32);
+  font-family: "苹方-简 常规体";
+  font-size: 22rpx;
+  line-height: 32rpx;
+  letter-spacing: 2rpx;
+  margin-bottom: 40rpx;
+}
+/* 章节简介 */
+.chapter-introduction{
+  width: 750rpx;
+  background-color: #fff;
+  border-radius: 30rpx 30rpx 0 0;
+  margin-top: 19rpx;
+ 
+}
+.introduction-centre{
+   /* width: 650rpx; */
+   margin: auto;
+}
+.introduction{
+  width: 160rpx;
+  color: #000;
+  font-size: 40rpx;
+  line-height: 56rpx;
+  margin-top: 60rpx;
+  font-weight: 600;
+  margin-left: 40rpx;
+}
+.introduction-box{
+  margin-top: 40rpx;
+  background-color: #F7F7F7;
+  padding:36rpx 50rpx 36rpx 60rpx;
+  margin-bottom: 28rpx;
+  box-sizing: border-box;
+  margin:40rpx 40rpx 28rpx;
+}
+.introduction-box .introduction-title{
+  color: #000;
+  font-size: 28rpx;
+  line-height: 42rpx;
+  overflow: hidden;
+}
+.wxParse{
+  margin:0;
+}
+/* 内容 */
+.wxParse-p{
+  font-size: 30rpx;
+  color: #333333;
+  line-height: 56rpx;
+  text-align: justify;
+  margin-top: 40rpx;
+}
+.wxParse-inline{
+  text-align: justify;
+  
+}
+.wxParse-img{
+  width:100%;
+}
+.introduction-img image{
+  width: 60rpx;
+  height: 88rpx;
+}
+/* 学习问题 */
+.questions{
+  font-weight: 600;
+  font-size: 40rpx;
+  line-height: 56rpx;
+  color: #000000;
+  margin:0 40rpx 36rpx;
+  margin-top: 80rpx;
+}
+.questions-study{
+  margin:0 50rpx;
+ 
+}
+.questions-left{
+  margin-top: 18rpx;
+  width: 28rpx;
+  float: left;
+   padding-right: 30rpx;
+}
+.questions-ico{
+  width: 28rpx;
+  height: 26rpx;
+  margin-bottom: 30rpx;
+  vertical-align: middle;
+}
+.questions-right{
+  overflow: hidden;
+  font-size: 30rpx;
+  color: #000;
+  line-height: 56rpx;
+  
+}
+.questions-all{
+   word-wrap: break-word;
+   word-break: break-all;
+   font-weight: 300;
+} 
+.info-course{
+  width: 650rpx;
+  height: 104rpx;
+  background-color: #000000;
+  border-radius: 54rpx;
+  color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  margin: 0 auto;
+  margin-bottom: 32rpx;
+  /* margin: 0 40rpx 32rpx */
+}
+.info-time{
+  height: 34rpx;
+  color: #2FBAF5;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  margin-bottom: 184rpx;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+
+
+
+

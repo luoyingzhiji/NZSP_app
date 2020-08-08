@@ -1,0 +1,63 @@
+.credentials{
+  width: 100%;
+  background-color: #fff;
+}
+.credentials-content{
+  width: 100%;
+  background-color: #fff;
+  padding: 0 80rpx;
+  box-sizing: border-box;
+}
+.credentials-content-title{
+  padding-top: 10px;
+  font-size:44rpx;
+  font-family:PingFangSC;
+  font-weight:600;
+  color:#000;
+  line-height:30px;
+}
+.credentials-content-image{
+  margin-top: 50px;
+  width: 100%;
+  height: 670rpx;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-size: 0;
+}
+.credentials-content-image iamge{
+  width: 100%;
+  max-height: 100%;
+}
+.credentials-btn{
+  width: 100%;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:50px;
+  border-radius:25px;
+  box-sizing: border-box;
+}
+.save-btn{
+  background-color: #000;
+  color: #fff;
+}
+.credentials-btn .save-btn[disabled]{
+  background-color: rgba(0, 0, 0, .3);
+  color: #fff;
+}
+.change-btn{
+  background-color: #fff;
+  border: 1px solid #000;
+  margin-top: 20px;
+}

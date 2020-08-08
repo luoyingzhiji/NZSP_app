@@ -1,0 +1,107 @@
+<!-- 导航栏h -->
+<view style="background-color:#000" class=" top opt-header-black {{isIphoneX?'top-x':''}}">
+    <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px'></view>
+    <view class='header'>
+      <navigator open-type="navigateBack">
+        <image class="navigator-image {{isIphoneX?'navigator-image-x':''}}" style='top:{{statusBarHeight + 10}}px' src='../../image/index/turnLeftWhite.png'></image>
+      </navigator>
+      <text class="txt titleWeight">{{sectionContert.courseName}}</text>
+    </view>
+    
+  </view>
+ <!-- 进度条 -->
+    <view style="width:100%;height:36rpx;position: fixed;left:0;top:{{statusBarHeight + 45}}px;z-index:22;background-color:#000;display: flex;align-items: center;" class="bar-scroll">
+      <view class="daughter-progress scroll-eee" style="width:100%;height:3px;">
+      <view class="scroll" style="height:3px;width:{{widths}}px"></view>
+      </view>
+      <view class="progress-num" style="left:{{widths-38<0?0:widths-38}}px">{{percentage}}%</view>
+    </view>
+  <!-- 内容 -->
+  <import src="../../wxParse/wxParse.wxml" />
+  <scroll-view scroll-y="true" style="height:{{scrollHeight - 48}}px;margin-top:{{statusBarHeight + 44 +18}}px" scroll-top="{{scrollTop}}">
+  <view class="bar-info">
+    <view class="bar-small">{{sectionContert.serialNumber}}</view>
+    <view class="bar-title" >
+      <view class="bar-left">{{sectionContert.name}}</view>
+      <view bindtap="collect" style="display: flex;align-items:center;">
+        <image wx:if="{{!isFavorite}}" class="bar-img " src="../../image/xinxilan/star.png " mode="widthFix"></image>
+        <image wx:else class="bar-img " src="../../image/xinxilan/star2.png " mode="widthFix"></image>
+        <text class="bar-size ">{{!isFavorite?'收藏本页':'已收藏'}}</text>
+      </view>
+    </view>
+    <view class="bar-show ">
+      <view class="lala"></view>
+      <view class="bar-contents" wx:for="{{barList}}" data-index="{{index}}" wx:key="{{index}}" style="margin-top:50rpx;">
+      <block wx:if="{{item.type!=4}}">
+           <view wx:if="{{item.numerical!=''}}"  class="bar-number">{{item.numerical}}</view>
+          <view wx:if="{{item.chineseItem!=''}}" class="bar-title" style="{{item.englishItem==''?'margin-bottom:25px':''}}">{{item.chineseItem}}</view>
+          <view  wx:if="{{item.englishItem!=''}}" class="bar-english">{{item.englishItem}}</view>
+      </block>
+      <block wx:if="{{item.type==4}}">
+        <view class="bar-video" >
+        <view class="video-left">
+          <text class="video-ready">{{item.musicName}}</text>
+<progress wx:if="{{playIndex==index}}" border-radius='16' bindchange='sliderChange' activeColor='RGBA(47, 186, 245, 1)' percent='{{sliderValue}}' class="video-progress " stroke-width="4 " backgroundColor="#EBEBEB " color="#2FBAF5 "></progress>
+         <progress  wx:if="{{playIndex!=index}}" border-radius='16' bindchange='sliderChange' class="video-progress " stroke-width="4 " backgroundColor="#EBEBEB " color="#2FBAF5 "></progress>
+      
+          <view  style="overflow:hidden" class="video-time">
+            <text wx:if="{{playIndex==index}}">{{nowTime}}</text>
+            <text wx:else>00:00</text>
+            <text   wx:if="{{playIndex==index&&totalTime!='00:00'}}">{{totalTime}}</text>
+             <text  wx:else></text>
+          </view>
+        </view>
+        <view class="video-right" catchtap="playaudio" data-index="{{index}}">
+     
+          <view>
+            <image style="width:68rpx;height:68rpx;padding-left:90rpx;padding-top:52rpx;" src="{{isplay&&playIndex==index?'../../image/xinxilan/bigin.png':'../../image/xinxilan/player.png'}}"></image>
+          </view>
+        </view>
+      </view>
+        </block>
+        <block wx:if="{{item.type==2}}">
+          <view class="bar-content">
+            <view class="wxParse">
+            <template is="wxParse" data="{{wxParseData:WxParseListArr[index]}}" />
+              <!-- <template is="wxParse" data="{{wxParseData:WxParseListArr[index]}}" /> -->
+            </view>
+          </view>
+        </block>
+        <block wx:if="{{item.type==3}}">
+          <image style="width:750rpx;" src="{{imagePath}}{{item.result}}" style="margin-top:50rpx;width: 100%" />
+        </block>
+       
+      </view>
+      <block wx:if="{{btnLoagIng==true}}">
+
+           <view wx:if="{{currentIndex==0&&sectionList.length==1}}" class="submit-paper-list">
+        <button wx:if="{{upIndex!=99}}" class="submit-paperone" bindtap="barSkip">进入本节测试</button>
+        <button wx:if="{{upIndex==99}}" class="submit-paperone" bindtap="skipConclusion">进入本节总结</button>
+      </view>
+
+      <view  wx:elif="{{currentIndex==0}}" class="submit-paper-list">
+        <button wx:if="{{upIndex==-1}}" class="submit-paperone" bindtap="barSkip">进入本节测试</button>
+        <button wx:else data-type="advance" class="the-previous-section-100" bindtap="returnbar"><text>进入下一节</text><image src="../../image/xinxilan/right.png"></image></button>
+      </view>
+
+      <view wx:elif="{{(currentIndex+1) == sectionList.length}}" class="submit-paper-list">
+        <button data-type="back" class="the-previous-section" bindtap="returnbar"><image src="../../image/xinxilan/return.png"></image><text>返回上一节</text></button>
+        <button wx:if="{{upIndex==99}}" class="submit-paper" bindtap="skipConclusion">进入本节总结</button>
+        <button wx:if="{{upIndex!=99}}" class="submit-paper" bindtap="barSkip">进入本节测试</button>
+      </view>
+      
+      
+      <view wx:else class="submit-paper-list">
+        <button data-type="back" class="the-previous-section" bindtap="returnbar"><image src="../../image/xinxilan/return.png"></image><text>返回上一节</text></button>
+        <button wx:if="{{currentIndex<=upIndex}}" data-type="advance" class="the-previous-section" bindtap="returnbar"><text>进入下一节</text><image src="../../image/xinxilan/right.png"></image></button>
+        <button wx:else class="submit-paper" bindtap="barSkip">进入本节测试</button>
+      </view>
+  
+
+      </block>
+      
+    </view>
+  </view>
+  </scroll-view>
+
+<include src="../partail/dialog.wxml"/> 

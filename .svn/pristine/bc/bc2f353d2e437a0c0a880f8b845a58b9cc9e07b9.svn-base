@@ -1,0 +1,58 @@
+
+<!-- 导航栏 -->
+<view class="top opt-header-black {{isIphoneX?'top-x':''}} ">
+  <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px'></view>
+  <view class='header'>
+   
+  </view>
+</view>
+
+<!-- 内容 -->
+<!-- hidden="{{!pageStatus}}" -->
+ 
+        <view wx:if="{{pageStatus}}" class="first-index" style="top:{{statusBarHeight + 45}}px; position:relative;">
+          <view class="first-index-logo">
+            <image src="../../image/NZSP_index/logo-big.png"></image>
+          </view>
+          <view class="indexinfo">100%纯净新西兰旅游专家计划
+欢迎你</view>
+          <view class="first-index-banner">
+              <swiper style="height:355px">
+                  <swiper-item >
+                    <view class="first-index-banner-list">
+                      <image src="../../image/NZSP_index/experts.png"></image>
+                      <view class="fanPerson"><text>旅游从业者</text> </view>
+                      <view class="indexinfo1">获得官方认证专家证书和奖牌，更好规划和销售新西兰产品</view>
+                       <image wx:if="{{expertsPitck==false}}" data-type="experts" class="selected-img"
+                      src="../../image/NZSP_index/selected.png"></image>
+                      <image wx:if="{{expertsPitck==true}}" bindtap="choose" data-type="experts" class="selected-img"
+                      src="{{expertsChooseStatus?'../../image/NZSP_index/selected.png':'../../image/NZSP_index/onSelected.png'}}"></image>
+                    </view>
+                  </swiper-item>
+                  <swiper-item wx:if="{{expertsPitck==true}}">
+                    <view class="first-index-banner-list">
+                      <image src="../../image/NZSP_index/identity.png"></image>
+                      <view class="fanPerson"><text>新西兰旅游达人</text> </view>
+                      <view class="indexinfo1">获取官方目的地介绍，助力规划你的旅程</view>
+                      <image bindtap="choose" data-type="hobby" class="selected-img"
+                      src="{{hobbyChooseStatus?'../../image/NZSP_index/selected.png':'../../image/NZSP_index/onSelected.png'}}"></image>
+                    </view>
+                  </swiper-item>
+              </swiper>
+          </view>
+          <view class="start-btn">
+            <view wx:if="{{ty==2}}"class="index-down"><text>确认你的选择，现在开启新西兰专家之旅吧</text></view>
+               <view wx:if="{{ty==1}}" class="index-down"><text>确认你的选择，现在开启新西兰达人之旅吧</text></view>
+            <view class="index-btn">
+             <button  bindtap="start" class="index-btn-content">开始</button>
+              <!-- <button open-type="getUserInfo" bindgetuserinfo="start" class="index-btn-content">开始</button> -->
+            </view>
+          </view>
+          
+        </view>
+        <!-- hidden="{{pageStatus}}" -->
+        <view wx:if="{{!pageStatus}}"  class="logo" style="height:{{promptHeight}}px">
+          <image src="../../image/common/logo.png"></image>
+        </view>
+   
+<include src="../partail/dialog.wxml"/> 

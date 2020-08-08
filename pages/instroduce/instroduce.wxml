@@ -1,0 +1,132 @@
+
+<!-- 导航栏 -->
+<view style="background-color:#000" class=" top opt-header-black {{isIphoneX?'top-x':''}}">
+  <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px'></view>
+  <view class='header'>
+     <navigator open-type="navigateBack">
+      <image class="navigator-image {{isIphoneX?'navigator-image-x':''}}" style='top:{{statusBarHeight + 10}}px' src='../../image/index/turnLeftWhite.png'></image>
+    </navigator>
+  </view>
+</view>
+<view class="activity-heard" style=" position: relative; top:{{statusBarHeight + 45}}px;"> 
+  <view class="introducer-up">
+     <view class="introducer-title">100%纯净新西兰旅游专家计划</view>
+     <view class="introducer-titletwo">参与课程学习，掌握专业新西兰旅游知识，获得官方认证，助力新西兰旅游产品规划和销售。</view> 
+     <view class="introducer-down">
+        <view class="info-title">01 课程简介</view>
+        <view class="info">
+          <view class="info-message1">通过基础课程和进阶课程，了解专业全面的新西兰旅游知识，升级成为官方认证专家。
+          </view>
+          <view class="info-message2" style="margin-top:50rpx;margin-bottom:24rpx">
+            <view class="message2-title">11单元  基础课程</view>
+              <view class="message2-titleinfo1">完成基础课程你将获得：</view>
+              <view class="message2-titleinfo2"><text class="spot"></text><text class="size">成为铜牌专家，解锁新西兰专家证书</text></view>
+            <view class="message2-titleinfo2"><text class="spot"></text><text class="size">加入新西兰考察旅行特惠折扣计划</text></view>
+         </view>
+         <view class="info-message2" style='height:270rpx;'>
+            <view class="message2-title">7单元  进阶课程</view>
+              <view class="message2-titleinfo1">完成进阶课程你将获得：</view>
+              <view class="message2-titleinfo2"><text class="spot"></text><text class="size">解锁进阶专属勋章</text></view>
+            <view class="message2-titleinfo2"><text class="spot"></text><text class="size">获取独特的旅行视角，打造更专业的新西兰主体游产品</text></view>
+         </view>
+
+         <view class="info-title1">02 专家等级与福利</view>
+         <view class="title1-message1">新西兰旅游专家分三个等级，按攻略解锁各个级别，获取精彩福利。旅游专家身份跟随个人，资质永久有效。</view>
+         <view class="title1-message2">
+          <image style="width:80rpx;height:90rpx;padding-left:50rpx;padding-top:44rpx" src="../../image/xinxilan/copper.png" ></image>
+           <view style="padding-left:50rpx">
+             <view class="copper-specialist">铜牌</view>
+             <view class="copper-message">完成11单元线上课程。</view>
+           </view>
+         </view>
+         <view class="title1-message3"style="margin-top:24rpx;margin-bottom:24rpx">
+            <image style="width:80rpx;height:90rpx;padding-left:50rpx;padding-top:44rpx" src="../../image/xinxilan/silver.png" ></image>
+               <view style="padding-left:50rpx">
+               <view class="copper-specialist1">银牌</view>
+               <view class="copper-message2">完成11单元线上课程；参加一次新西兰旅游局线上或线下培训。</view>
+              </view>
+         
+         </view>
+         <view class="title1-message2" style="height: 220rpx;">
+          <image style="width:80rpx;height:90rpx;padding-left:50rpx;padding-top:66rpx" src="../../image/xinxilan/gold.png" ></image>
+           <view style="padding-left:50rpx">
+             <view class="copper-specialist">金牌</view>
+             <view class="copper-message" style="width:460rpx;">完成11单元线上课程；参加一次新西兰旅游局线上或线下培训；3年内到访过新西兰。</view>
+           </view>
+         </view>
+
+
+
+         <!-- //专家福利 -->
+         <view class="welfare">
+           <text class="welfare-person" style="padding-right:278rpx;">专家福利</text>
+           <text class="welfare-plate">铜牌</text>
+           <text class="welfare-plate">银牌</text>
+           <text class="welfare-plate" style="padding-right: -24rpx;">金牌</text>
+         </view>
+         <view class="welfare-info" style="margin-top:22rpx;">
+        
+            <text class="spot2"></text>
+            <text style="margin-right:50rpx;width:338rpx">旅游专家专属勋章</text>
+            <image class="img" src="../../image/xinxilan/check.png" style="padding-right:48rpx;"></image>
+            <image class="img" src="../../image/xinxilan/check.png" style="padding-right:48rpx;"></image>
+            <image class="img" src="../../image/xinxilan/check.png"></image>
+        
+           
+         </view>
+         <view class="welfare-info welfare-color">
+            <text class="spot2"></text>
+
+            <text style="margin-right:50rpx;width:338rpx">加入探访新西兰特惠折扣计划</text>
+             <image class="img" src="../../image/xinxilan/check.png" style="padding-right:48rpx;"></image>
+            <image class="img" src="../../image/xinxilan/check.png" style="padding-right:48rpx;"></image>
+            <image class="img" src="../../image/xinxilan/check.png"></image>
+         </view>
+         <view class="welfare-info">
+             <text class="spot2"></text>
+             <text class="welfare-infodown" style="margin-right:50rpx;width:338rpx">受邀参加新西兰旅游局大型线上线下活动和培训</text>
+             <image class="img" src="../../image/xinxilan/check.png" style="padding-right:48rpx;"></image>
+             <image class="img" src="../../image/xinxilan/check.png" style="padding-right:48rpx;"></image>
+             <image class="img" src="../../image/xinxilan/check.png"></image>
+        </view>
+         <view class="welfare-info welfare-color">
+           <text class="spot2"></text>
+             <text class="welfare-infodown" style="margin-right:130rpx;width:338rpx">优先受邀参加由新西兰旅游局组织的新西兰考察团</text>
+             <image class="img" src="../../image/xinxilan/check.png" style="padding-right:48rpx;"></image>
+             <image class="img" src="../../image/xinxilan/check.png"></image>
+         </view>
+         <view class="welfare-info">
+            <text class="spot2"></text>
+            <text style="margin-right:130rpx;width:338rpx">参加官方合作市场推广活动</text>
+            <image class="img" src="../../image/xinxilan/check.png" style="padding-right:48rpx;"></image>
+            <image class="img" src="../../image/xinxilan/check.png"></image>
+         </view>
+
+
+         <!-- 备注 -->
+         <view class="remark">* 获得一定数量新西兰旅游专家的旅行社方有机会申请成为新西兰旅游局优选合作伙伴。</view>
+         <!-- 探访新西兰计划 -->
+         <view class="visit">探访新西兰计划</view>
+         <view class="visit-info" style="margin-bottom:30rpx">体验探索新西兰的绝佳方式，方便你更好地向客户分享新西兰之旅的见闻心得</view>
+         <view class="visit-info" style="margin-bottom:30rpx"><text style="margin-right:4rpx">•</text>新西兰住宿和旅游商家提供各种特别优惠，让你可以经济实惠地游览新西兰，现有超过1000个优惠产品可供选择。
+</view>
+         <view class="visit-info"><text style="margin-right:4rpx">•</text>只有你掌握了新西兰的第一手资料，才能更好地帮助客户规划他们的新西兰之旅。</view>
+        </view>
+        <view class="apply-down" >
+            <!-- 申请加入十分简单 -->
+        <view class="apply">申请加入十分简单</view>
+        <view class="apply-eligibility">01 申请资格</view>
+        <view class="apply-info" style="margin-bottom:30rpx;">• 新西兰旅游相关从业者，并且已成功完成11个单元基础课程，获得铜牌专家称号</view>
+         <view class="apply-info" style=" margin-bottom: 40rpx;">• 可以提高新西兰知名度和游客人数的产品规划人员、经理及其他核心决策者。</view>
+         <view class="channel">02 申请渠道</view>
+          <view class="channel-info">
+           打开浏览器，输入<text style="word-wrap: break-word;word-break: break-all;white-space: pre-line;color:rgba(47, 186, 245, 1);border-bottom:2rpx solid rgba(47, 186, 245);">https://traveltrade.newzealand.com</text>，点击
+“优惠”>”探访新西兰计划“了解更多详情及进行申请。</view>
+           
+        </view> 
+     </view>
+ </view>  
+   
+</view>
+
+  

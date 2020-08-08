@@ -1,0 +1,75 @@
+<view class="top {{isIphoneX?'top-x':''}} skip-chapter-header-black">
+  <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight}}px;color:#fff;'></view>
+  <view class='header'>
+    <navigator open-type="navigateBack">
+      <image class="navigator-image {{isIphoneX?'navigator-image-x':''}}" style='top:{{statusBarHeight + 10}}px'           src='../../image/index/turnLeftWhite.png'></image>
+    </navigator>
+    <text style="color:#fff;" class="titleWeight">{{courseName}}</text>
+  </view>
+</view>
+<!-- 进度条 -->
+    <view style="width:100%;height:36rpx;position: fixed;left:0;top:{{statusBarHeight + 45}}px;z-index:22;background-color:#000;display: flex;align-items: center;" class="bar-scroll">
+      <view class="daughter-progress scroll-eee" style="width:100%;height:3px;">
+      <view class="scroll" style="height:3px;width:{{winHeight}}px"></view>
+      </view>
+      <view class="progress-num" style="left:{{widths}}px">100%</view>
+    </view>
+<view class="{{isIphoneX?'mt170':''}} skip-chapter-content" style="margin-top:{{statusBarHeight + 45}}px">
+ 
+  <view class="skip-chapter-top">
+    <view  wx:if="{{type=='advance'}}" class="skip-chapter-top-content">
+      <text class="top-content-title">恭喜完成学习</text>
+      <text class="top-content-text">你已通过本章学习测验，并获得“{{medalName}}”勋章。</text>
+      <image class="top-content-image" src="{{imagePath}}{{medalUrl}}"></image>
+    </view>
+    <view  wx:if="{{type=='basics'}}" class="skip-chapter-top-content">
+      <text class="top-content-title">恭喜完成学习</text>
+      <text class="top-content-text">你已通过本章学习测验，你离新西兰旅游专家又近一步了。</text>
+    </view>
+  </view>
+  <view class="skip-chapter-bottom">
+    <view class="bar-video">
+      <view class="video-left">
+        <text class="video-ready">{{musicName}}</text>
+        <!-- <view class="slider">
+          <slider bindchange='sliderChange' activeColor='RGBA(47, 186, 245, 1)' block-size="12" value='{{audioTime}}' />
+        </view> bindchanging='sliderChangeIng' -->
+        <view class="slider" style="padding-left: 12rpx; ">
+         <slider style="margin:0;padding:0;" min="0" max="{{total}}" block-size='20' bindchange='sliderChange' bindchanging='sliderChangeIng'  activeColor='RGBA(47, 186, 245, 1)' block-size="12" value='{{sliderValue}}' ></slider>
+        </view>
+     <!-- <progress  bindchange='sliderChange' activeColor='RGBA(47, 186, 245, 1)' percent='{{sliderValue}}' class="video-progress" stroke-width="4" backgroundColor="#EBEBEB" color="#2FBAF5"></progress> -->
+        <view style="overflow:hidden" class="video-time">
+            <text>{{nowTime}}</text>
+            <!-- <text >00:00</text> -->
+            <text>{{totalTime}}</text>
+            
+        </view>
+      </view>
+      <view class="video-right" catchtap="playaudio" >
+        <!-- 按钮 -->
+        <!-- 暂停 -->
+        <view>
+            <image style="width:68rpx;height:68rpx;padding-left:90rpx;padding-top:52rpx;" src="{{isplay?'../../image/xinxilan/bigin.png':'../../image/xinxilan/player.png'}}"></image>
+        </view>
+       
+    </view>
+ </view>
+    <view class="conclusion">
+      <view class="conclusion-title">你已经学习到了</view>
+      <view class="conclusion-list">
+        <view class="conclusion-list-content" wx:for="{{graspList}}" wx:key="{{index}}">
+          <image wx:if="{{item.use == 'o&n'}}" src="../../image/exam/blue-leaf.png"></image>
+          <text class="conclusion-list-text">{{item.context}}</text>
+        </view>
+      </view>
+    </view>
+    <view>
+      <view bindtap="skipNextChapter" class="kip-chapter-btn">{{level=='level'?'返回课程中心':'继续学习下一章'}}</view>
+      <view bindtap="skipIndex" class="return-index-btn">
+        <text>返回课程中心</text>
+        <image src="../../image/exam/right.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<include src="../partail/expertsUpgrade.wxml"/> 

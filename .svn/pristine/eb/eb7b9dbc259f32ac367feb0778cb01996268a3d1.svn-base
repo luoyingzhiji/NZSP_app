@@ -1,0 +1,27 @@
+<!-- 导航栏 -->
+<view class="top opt-header-black {{isIphoneX?'top-x':''}} ">
+  <view class="state {{isIphoneX?'state-x':''}}" style='height:{{statusBarHeight*2}}rpx'></view>
+  <view class='header'>
+  <navigator open-type="navigateBack">
+      <image  class="navigator-image {{isIphoneX?'navigator-image-x':''}}" style='top:{{statusBarHeight*2 + 32}}rpx;padding-left:32rpx;' src='../../image/xinxilan/return.png'></image>
+    </navigator>
+  </view>
+</view>
+<view class="parsonalinfo" style="top:{{statusBarHeight*2 + 90}}rpx; position:relative;">
+      <view class="info-box">
+        <image src="../../image/xinxilan/xXl.png" style="width:128rpx;height:128rpx;"></image>
+      </view>
+      <view class="info-title">
+         新西兰旅游专家计划
+      </view>
+      <view class="info-line"> </view>
+      <view class="info-title1"> 该程序需要你授权以下信息后进行登录：</view>
+      <view class="info-title1 info-title11"> - 获得您的公开信息（昵称、头像等）</view>
+      <!-- <view class="info-btn" bindtap="consent"> 同意</view> -->
+      <button open-type="getUserInfo" bindgetuserinfo="consent" class="info-btn">同意</button>
+      <button class="info-btn info-btn1" bindtap="refuse"> 拒绝</button>
+      <view class="info-img">
+         <image src="../../image/xinxilan/xXl2.png" style="width:322rpx;height:306rpx;"></image>
+      </view>
+
+</view>

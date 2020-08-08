@@ -1,0 +1,6 @@
+<view class="prompt" hidden="{{promptStatus}}" animation="{{animationData}}" style="height:{{promptHeight}}px">
+    <view class="prompt-box">
+      <image class="prompt-box-image" src="../../image/NZSP_index/prompt.png"></image>
+      <view class="prompt-box-text"><text>{{dialogContent}}</text></view>
+    </view>    
+</view>

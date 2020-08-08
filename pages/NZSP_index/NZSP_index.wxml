@@ -1,0 +1,170 @@
+<view class='top'>
+  <view class="state {{isIphoneX?'state-x':''}}"  style='height:{{statusBarHeight}}px'></view>
+
+</view>
+<view class="nzsp-index mt130 {{isIphoneX?'mt170':''}}" style='margin-top: {{statusBarHeight + 44}}px'>
+   <form bindsubmit="formSubmit" report-submit="true">
+    <button class='form_button' form-type='submit' data-name='buttonName'>
+        <view class="welcomes">
+          <view class="welcomes-tetile">
+            <image class="welcomes-tetile-logo" src="../../image/NZSP_index/logo-big.png"></image>
+            <text wx:if="{{!loginStatus}}" class="welcomes-tetile-text">{{chooseStatus != 'experts'?'登录后可开启100%纯净新西兰旅游达人课程':'登录后可开启新西兰旅游专家计划'}}</text>
+            <text wx:if="{{loginStatus}}" class="welcomes-tetile-text-name">{{userInfo.realName}}, {{chooseStatus != 'experts'?'欢迎加入100%纯净新西兰旅游达人课程':'欢迎加入100%纯净新西兰旅游专家计划'}}</text>
+            <view class="login-btn" bindtap="skipRegistered" wx:if="{{!loginStatus}}">
+              <text>立即登录</text>
+              <image class="right-arrow" src="../../image/NZSP_index/white-right.png"></image>
+            </view>
+          </view>
+          <view wx:if="{{chooseStatus == 'experts'}}" class="welcomes-banner">
+            <swiper >
+              <block wx:for="{{miniHomeBanner}}" wx:for-item="HomeBannerItem" wx:for-index="HomeBannerIndex" wx:key="HomeBannerIndex">
+                <swiper-item>
+                    <image bindtap="bannerSkip" data-skipType="{{HomeBannerItem.typeLink}}" data-moreUrl="{{HomeBannerItem.moreUrl}}" class="banner-image" src="{{imagePath}}{{HomeBannerItem.link}}"></image>
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+           <view wx:if="{{chooseStatus == 'hobby'}}" class="welcomes-banner" style="{{miniBanner==''?'height:0;':''}}">
+            <swiper >
+              <block wx:for="{{miniBanner}}" wx:for-item="miniBannerItem" wx:for-index="miniBannerIndex" wx:key="miniBannerIndex">
+                <swiper-item>
+                    <image bindtap="bannerSkip" data-skipType="{{miniBannerItem.typeLink}}" data-moreUrl="{{miniBannerItem.moreUrl}}" class="banner-image" src="{{imagePath}}{{miniBannerItem.link}}"></image>
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+        </view>
+        <view class="expert-course">
+            <view class="expret-course-title">
+              <text>新西兰旅游专家课程</text>
+            </view>
+            <view class="basics-course" wx:if="{{chooseStatus == 'hobby'}}" bindtap="basicsStartStudy">
+              <image src="{{imagePath}}{{miniCourseImg[0].link}}"></image>
+              <image wx:if="{{barShow=='yes'&&reviewaBasicsNum!=basicsNum}}" class="tag-studying" src="../../image/NZSP_index/tag_studying.png"></image>
+              <!-- <image wx:if="{{reviewaBasicsNum ==basicsNum}}" class="tag-studying" src="../../image/NZSP_index/studying-complete.png"></image> -->
+              <view class="course-study-progress">
+                <view class="study-progress-left">
+                  <view class="study-progress-chapter">
+                    <text wx:if="{{reviewaBasicsNum>0}}" class="progress-chapter-num">{{reviewaBasicsNum}}</text>
+                    <text wx:if="{{reviewaBasicsNum>0}}" style="margin:0 6rpx;font-size: 34rpx;">/</text>
+                    <text class="{{reviewaBasicsNum>0?'chapter-num':'progress-chapter-num'}}">{{basicsNum}}</text>
+                  </view>
+                  <view class="study-chapter-num">单元数量</view>
+                </view>
+                <view class="study-progress-right">
+                 <view wx:if="{{reviewaBasicsNum!=basicsNum}}"  class="study-chapter-btn">{{barShow=='yes'?'继续学习':'开始学习'}}</view>
+                 <view wx:if="{{reviewaBasicsNum==basicsNum}}" class="study-chapter-btn study-chapter-btn1">学习已完成</view>
+                </view>
+              </view>
+            </view>
+            <view class="expret-course-banner" wx:if="{{chooseStatus == 'experts'}}">
+              <swiper previous-margin="{{frontMargin}}" next-margin="{{behindMargin}}">
+                <block>
+                  <swiper-item>
+                    <view style="position:relative;height:640rpx;width:100%;" bindtap="basicsStartStudy">
+                      <image class="banner-image" src="{{imagePath}}{{miniCourseImg[0].link}}"></image>
+                      <image wx:if="{{barShow=='yes'&&reviewaBasicsNum!=basicsNum}}" class="tag-studying" src="../../image/NZSP_index/tag_studying.png"></image>
+                      <!-- <image wx:if="{{reviewaBasicsNum==basicsNum}}" class="tag-studying" src="../../image/NZSP_index/studying-complete.png"></image> -->
+                      <view class="study-progress">
+                        <view class="study-progress-left">
+                          <view class="study-progress-chapter">
+                            <text  wx:if="{{reviewaBasicsNum>0}}" class="progress-chapter-num">{{reviewaBasicsNum}}</text>
+                            <text wx:if="{{reviewaBasicsNum>0}}" style="margin:0 6rpx;font-size:30rpx">/</text>
+                            <text class="{{reviewaBasicsNum>0?'chapter-num':'progress-chapter-num'}}">{{basicsNum}}</text>
+                          </view>
+                          <view class="study-chapter-num">单元数量</view>
+                        </view>
+                        <view class="study-progress-right">
+                          <view wx:if="{{reviewaBasicsNum!=basicsNum}}" class="study-chapter-btn">{{barShow=='yes'?'继续学习':'开始学习'}}</view>
+                          <view wx:if="{{reviewaBasicsNum==basicsNum}}" class="study-chapter-btn study-chapter-btn1">学习已完成</view>
+                        </view>
+                      </view>
+                    </view>
+                  </swiper-item>
+                </block>
+                <block>
+                  <swiper-item>
+                    <view style="position:relative;height:640rpx;width:100%;" bindtap="advanceStartStudy">
+                      <image class="banner-image" src="{{imagePath}}{{miniCourseImg[1].link}}"></image>
+                       <image wx:if="{{barShowOne=='yes'&&reviewaDvanceNum!=advanceNum}}" class="tag-studying" src="../../image/NZSP_index/tag_studying.png"></image>
+                      <view class="study-progress">
+                        <view class="study-progress-left">
+                          <view class="study-progress-chapter">
+                            <text wx:if="{{reviewaDvanceNum>0}}" class="progress-chapter-num">{{reviewaDvanceNum}}</text>
+                            <text wx:if="{{reviewaDvanceNum>0}}" style="margin:0 6rpx;font-size:30rpx">/</text>
+                            <text class="{{reviewaDvanceNum>0?'chapter-num':'progress-chapter-num'}}">{{advanceNum}}</text>
+                          </view>
+                          <view class="study-chapter-num">单元数量</view>
+                        </view>
+                        <view class="study-progress-right">
+                          <view class="study-not-unlock" >
+                            <!-- <view wx:if="{{reviewaBasicsNum !=basicsNum}}">
+                              <image src="../../image/NZSP_index/icon_12x12_locked_gray.png"></image>
+                              <text>未解锁</text>
+                            </view> -->
+                            <!-- <view wx:else> -->
+                              <view>
+                             <view wx:if="{{reviewaDvanceNum!=advanceNum}}" class="study-chapter-btn">{{barShowOne=='yes'?'继续学习':'开始学习'}}</view>
+                             <view wx:if="{{reviewaDvanceNum==advanceNum}}" class="study-chapter-btn study-chapter-btn1">学习已完成</view>
+                              </view>
+
+
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </swiper-item>
+                </block>
+              </swiper>
+          </view>
+        </view>
+        <!-- 登陆以后并且是专家才显示 -->
+      <view hidden="{{!timeS}}">
+         <view hidden="{{activityStatus}}" class="lately-activity">
+          <view class="activity-title">
+            <view class="activity-title-text">最近活动</view>
+            <view  bindtap="skipActivity" class="activity-title-all">
+              <text>查看全部</text>
+              <image src="../../image/NZSP_index/right-eee.png"></image>
+            </view>
+          </view>
+          <view class="activity-content" bindtap="skipActivityInfo">
+            <view class="activity-content-bg">
+              <view class="activity-content-img">
+                <image src="{{imagePath}}{{activity.banner}}"></image>
+                <view class="sign-up">
+                  <image src="../../image/NZSP_index/tag_open-to-apply.png"></image>
+                </view>
+              </view>
+              <view class="activity-content-info">
+                <text class="activity-content-info-title">{{activity.name}}</text>
+                <view class="immediately-start">即将开始</view>
+                <view class="activity-time-site">
+                  <view class="activity-site">
+                    <image src="../../image/NZSP_index/icon_20x20_location.png"></image>
+                    <text>{{activity.city}}</text>
+                  </view>
+                  <view class="activity-time">
+                    <text>{{startTime}}-{{endTime}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class="clear"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+        <view class="recommended">
+          <text class="recommended-title">当季推荐</text>
+          <view class="recommended-image">
+              <image bindtap="recommendedSkip" data-moreUrl="{{miniRecommendedBanner[0].moreUrl}}" src="{{imagePath}}{{miniRecommendedBanner[0].link}}"></image>
+          </view>
+        </view>
+    </button>
+   </form>
+</view>
+<include src="../partail/bottomPrompt.wxml"/>
+<include src="../partail/expertsUpgrade.wxml"/>
+
+
